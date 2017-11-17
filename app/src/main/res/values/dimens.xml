@@ -4,5 +4,17 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="default_base_toolbar_height">56dp</dimen>
+    <dimen name="reg_default">50dp</dimen>
+
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_15dp">15dp</dimen>
+    <dimen name="margin_1dp">1dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
+
+    <dimen name="textsize_common">13sp</dimen>
 
 </resources>

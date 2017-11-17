@@ -22,21 +22,21 @@
             android:id="@+id/base_toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/default_base_toolbar_height"
-            android:background="@color/colorPrimary"
+            android:background="@color/top_background"
             app:contentInsetStartWithNavigation="0dp"
             app:navigationIcon="@mipmap/ic_return_white"
             app:titleTextColor="@color/white"
             >
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_center_title"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:gravity="center"-->
-                <!--android:text=""-->
-                <!--android:textColor="@color/white"-->
-                <!--android:textSize="18sp"/>-->
+            <TextView
+                android:id="@+id/tv_center_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/tv_toolbar_right"

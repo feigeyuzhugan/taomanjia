@@ -37,4 +37,53 @@
     </style>
 
 
+    <style name="loginUserNameStyleWhite">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+    <style name="loginTextStyleWhite">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="userTopTextStyle">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <!--条目的布局情况 -->
+    <style name="textStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/padding_10dp</item>
+        <item name="android:drawablePadding">@dimen/padding_10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawableRight">@drawable/rightbtn</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_margin">@dimen/margin_1dp</item>
+        <item name="android:textSize">@dimen/textsize_common</item>
+    </style>
+    <!--条目的布局情况 -->
+    <style name="textStyle_no_drawable">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/padding_10dp</item>
+        <item name="android:drawablePadding">@dimen/padding_10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_margin">@dimen/margin_1dp</item>
+        <item name="android:textSize">@dimen/textsize_common</item>
+    </style>
+    <!--
+        edittext的整合
+          android:layout_centerVertical="true"
+        android:background="@null"
+    -->
+    <style name="edittextStyle" >
+        <item name="android:padding">@dimen/padding_10dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@null</item>
+    </style>
+<!--    <style name="edittextStyle_centerVertical" parent="edittextStyle">
+        <item name="layout_centerVertical">true</item>
+    </style>-->
 </resources>

@@ -14,4 +14,20 @@
 
     <string name="exit_confirm">再点一次退出程序</string>
 
+    <string name="user_text_red_envelope">我的红包</string>
+    <string name="user_text_old_jifen">养老积分</string>
+    <string name="user_text_share_jifen">分享积分</string>
+    <string name="user_text_jinyuan">盛世金元</string>
+
+    <string name="user_order_1">待付款</string>
+    <string name="user_order_2">待发货</string>
+    <string name="user_order_3">待收货</string>
+    <string name="user_order_4">待评价</string>
+    <string name="user_order_5">退换/退款</string>
+
+    <string name="setting_about">关于我们</string>
+    <string name="setting_suggestion">意见反馈</string>
+    <string name="setting_check">检测更新</string>
+
+    <string name="reg_getCheck_code">获取验证码</string>
 </resources>

@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="top_background">#00a0e9</color>
+    <color name="gray_bg">#d7d7d7</color><!--整个项目的背景色-->
+
     <!--MD_dialog相关-->
     <color name="card_background">#ffffff</color>
     <color name="card_shadow">#10000000</color>
@@ -16,4 +19,5 @@
     <color name="gray_c">#ffcccccc</color>
     <color name="black_4d">#4d4d4d</color>
     <color name="black">#000000</color>
+
 </resources>

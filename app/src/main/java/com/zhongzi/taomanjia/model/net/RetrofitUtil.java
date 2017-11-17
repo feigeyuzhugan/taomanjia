@@ -313,7 +313,6 @@ public class RetrofitUtil {
         };
     }
 
-
     //下载文件，并保存到目标文件中
     public static boolean downloadAndSave(ResponseBody body, File fileSave) {
 
@@ -372,7 +371,6 @@ public class RetrofitUtil {
         }).take(1);
     }
 
-
     //请求失败重试机制
     public static class RetryFunction implements Function<Observable<Throwable>, ObservableSource<?>> {
 
@@ -403,8 +401,6 @@ public class RetrofitUtil {
 //                    return Observable.timer(retryDelaySeconds, TimeUnit.SECONDS);
 //                }
 //            });
-
-
 
             //方案二：使用全局变量来控制重试次数，重试3次后不再重试，通过代码显式回调onError结束请求
             return throwableObservable.flatMap(new Function<Throwable, ObservableSource<?>>() {

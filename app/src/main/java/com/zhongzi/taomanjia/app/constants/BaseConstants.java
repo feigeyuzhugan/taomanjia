@@ -15,4 +15,5 @@ public interface BaseConstants {
     String APP_SHARE = "app_share";                         // 默认preference名字
     String APP_SHARE_USER = "app_user_share";               //用户sharePreference
 
+
 }

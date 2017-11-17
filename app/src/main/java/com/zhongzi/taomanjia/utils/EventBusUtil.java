@@ -1,6 +1,9 @@
 package com.zhongzi.taomanjia.utils;
 
 
+import com.zhongzi.taomanjia.model.entity.eventbus.register.RegCheckPhoneNumEvent;
+import com.zhongzi.taomanjia.model.entity.eventbus.register.RegNextEvent;
+
 import org.greenrobot.eventbus.EventBus;
 
 /**
@@ -57,8 +60,4 @@ public class EventBusUtil {
         EventBus.getDefault().postSticky(event);
     }
 
-    //发送电影事件
-//    public static void postMovieEvent(MovieEvent movieEvent) {
-//        postEvent(movieEvent);
-//    }
 }

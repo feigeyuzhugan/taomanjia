@@ -1,6 +1,7 @@
 package com.zhongzi.taomanjia.model.net;
 
 import android.net.ParseException;
+import android.util.Log;
 
 import com.google.gson.JsonParseException;
 
@@ -29,7 +30,7 @@ public class ExceptionHandler {
 
     public static ResponseThrowable handleException(Throwable e) {
         ResponseThrowable responseThrowable;
-//        Log.i("tag", "e.toString = " + e.toString());
+        Log.i("tag", "e.toString = " + e.toString());
         if (e instanceof HttpException) {
             HttpException httpException = (HttpException) e;
             responseThrowable = new ResponseThrowable(e, ERROR.HTTP_ERROR);

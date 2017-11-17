@@ -5,7 +5,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-
 import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.view.widget.loadlayout.LoadLayout;
 
@@ -23,7 +22,7 @@ import butterknife.ButterKnife;
  * 实现initView来做视图相关的初始化，
  * 实现obtainData来做数据的初始化
  * 实现initEvent来做事件监听的初始化
- *
+ * <p>
  * http://www.jianshu.com/p/3d9ee98a9570
  */
 public abstract class ToolbarBaseActivity extends BaseActivity {
@@ -34,6 +33,8 @@ public abstract class ToolbarBaseActivity extends BaseActivity {
     Toolbar mToolbar;
     @BindView(R.id.tv_toolbar_right)
     TextView mTvToolbarRight;//toolbar右侧的文字控件
+    @BindView(R.id.tv_center_title)
+    TextView mTvCenterTitle;//toolbar居中的文字控件
 
 
     @Override
@@ -90,6 +91,12 @@ public abstract class ToolbarBaseActivity extends BaseActivity {
             mTvToolbarRight.setText(text);
         }
     }
+    //设置toolbar居中文字控件的内容
+    public void setToolbarCenterTitle(String text){
+        if ( mTvCenterTitle!= null) {
+            mTvCenterTitle.setText(text);
+        }
+    }
 
     /**
      * 获取toolbar右侧的文字控件
@@ -120,6 +127,5 @@ public abstract class ToolbarBaseActivity extends BaseActivity {
             mLoadLayout.closeAnim();
         }
     }
-
 
 }

@@ -14,6 +14,11 @@ public interface UrlConstants {
 
     String GETPRODUCTLIST = "getProductList";//获取商品列表
 
-//    String GET_COMMING_MOVIE = "v2/movie/coming_soon";
-    String GETINDEXTOPBANNERINFO="getIndexTopBannerInfo";
+    //    String GET_COMMING_MOVIE = "v2/movie/coming_soon";
+    String GETINDEXTOPBANNERINFO = "getIndexTopBannerInfo";
+    //发送手机号获取验证码
+    String POSTMOBILEVERIFICATIONCODE = "postMobileVerificationCode";
+    //注册新用户
+    String POSTADDREGISTERUSERINFO = "addregisterUserInfo";
+
 }

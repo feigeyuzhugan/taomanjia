@@ -2,9 +2,9 @@ package com.zhongzi.taomanjia.model.net;
 
 import android.util.Log;
 
-import com.zhongzi.taomanjia.model.entity.res.HttpResult;
-
-import java.util.List;
+import com.zhongzi.taomanjia.model.entity.res.base.HttpResult;
+import com.zhongzi.taomanjia.utils.ToastUtil;
+import com.zhongzi.taomanjia.utils.log.LogUtil;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -48,12 +48,19 @@ public abstract class HttpObserver<T> implements Observer<HttpResult<T>> {
         //如请求回来后，先判断token是否失效
         //如果失效则直接跳转登录页面
         //...
-        Log.e( "HttpObserver: ----", httpResult.getInfo().get(0).toString());
         //如果没失效，则正常回调
-        onNext(httpResult.getMessage(), httpResult.getInfo());
+        check(httpResult);
     }
-
+    private void check(HttpResult<T> httpResult) {
+        if (httpResult.isCode()){
+            LogUtil.e("HttpResult正确测试"+httpResult.getInfo().toString());
+            onNext(httpResult.getMessage(), httpResult.getInfo());
+        }else {
+            LogUtil.e("HttpResult正确测试",httpResult.getMessage());
+            ToastUtil.show(httpResult.getMessage());
+        }
+    }
     //具体实现下面两个方法，便可从中得到更直接详细的信息
-    public abstract void onNext(String title, List<T> t);
+    public abstract void onNext(String title, T t);
     public abstract void onError(int errType, String errMessage);
 }

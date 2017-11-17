@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/linearlayout_divider_width_gray"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <TextView
+        android:id="@+id/setting_about"
+        style="@style/textStyle"
+        android:drawableLeft="@drawable/setting_about"
+        android:text="@string/setting_about" />
+    <TextView
+        style="@style/textStyle"
+        android:id="@+id/setting_suggestion"
+        android:drawableLeft="@drawable/setting_suggestion"
+        android:text="@string/setting_suggestion"/>
+    <TextView
+        style="@style/textStyle"
+        android:id="@+id/setting_check"
+        android:drawableLeft="@drawable/setting_check"
+        android:text="@string/setting_check"/>
+
+    <Button
+        android:id="@+id/settint_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出"/>
+
+</LinearLayout>

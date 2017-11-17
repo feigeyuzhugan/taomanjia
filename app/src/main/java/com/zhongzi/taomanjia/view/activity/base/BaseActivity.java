@@ -79,7 +79,7 @@ public abstract class BaseActivity extends AbstractActivity implements IBaseActi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
         init();
 
         setContentLayout();//由具体的activity实现，设置内容布局ID
@@ -97,7 +97,7 @@ public abstract class BaseActivity extends AbstractActivity implements IBaseActi
     }
 
     private void initBarColor() {
-        int color = getResourceColor(R.color.colorPrimary);
+        int color = getResourceColor(R.color.top_background);
         setBarColor(color, 0, color, 0);
     }
 

@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 
-import com.zhongzi.taomanjia.MainActivity;
+import com.zhongzi.taomanjia.view.activity.MainActivity_test;
 import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.view.activity.base.BaseActivity;
 
@@ -91,7 +91,7 @@ public class CommonUtil {
 
         shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
 
-        Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(context.getApplicationContext(), MainActivity_test.class);
         //下面两个属性是为了当应用程序卸载时桌面 上的快捷方式会删除
         intent.setAction("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.LAUNCHER");
@@ -110,7 +110,7 @@ public class CommonUtil {
         Intent shortcut = new Intent("com.android.launcher.action.UNINSTALL_SHORTCUT");
         //快捷方式的名称
         shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, context.getString(R.string.app_name));
-        Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(context.getApplicationContext(), MainActivity_test.class);
         intent.setAction("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setComponent(componentName);
