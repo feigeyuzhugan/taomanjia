@@ -50,6 +50,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/countdown_bg"
+            android:textColor="@color/white"
             android:text="确认注册"/>
     </LinearLayout>
 

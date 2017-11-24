@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/forge_title_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/reg_default"
         android:orientation="horizontal">
@@ -14,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="1，手机验证"
+            android:text="1，验证手机"
             android:background="@drawable/forget_password_select1"
             android:textSize="16sp"
             android:layout_height="match_parent" />
@@ -22,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2，确认注册"
+            android:text="2，确认修改"
             android:textSize="16sp"
             android:layout_height="match_parent" />
     </LinearLayout>

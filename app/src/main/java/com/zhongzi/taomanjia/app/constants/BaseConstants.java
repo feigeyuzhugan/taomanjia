@@ -14,6 +14,11 @@ public interface BaseConstants {
 
     String APP_SHARE = "app_share";                         // 默认preference名字
     String APP_SHARE_USER = "app_user_share";               //用户sharePreference
+    String APP_LOGIN_USER = "app_login_user";               //用户登录信息sharePreference
 
-
+    /*对应的界面参数*/
+    int SETTINGACTIVITY=1001;//设置界面
+    int LOGINACTIVITY=1002;//登录界面
+//    int SETTINGACTIVITY=1001;
+//    int SETTINGACTIVITY=1001;
 }

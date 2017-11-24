@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.zhongzi.taomanjia.model.entity.res.base.HttpArrayResult;
 import com.zhongzi.taomanjia.utils.ToastUtil;
+import com.zhongzi.taomanjia.utils.log.LogUtil;
 
 import java.util.List;
 
@@ -21,14 +22,17 @@ import io.reactivex.disposables.Disposable;
 public abstract class HttpArrayObserver<T> implements Observer<HttpArrayResult<T>> {
     @Override
     public void onSubscribe(Disposable d) {
+        LogUtil.e("--onSubscribe---");
     }
 
     @Override
     public void onComplete() {
+        LogUtil.e("--onComplete---");
     }
 
     @Override
     public void onError(Throwable e) {
+        LogUtil.e("--onError---");
         if (e instanceof Exception) {
             //访问获得对应的Exception
             ExceptionHandler.ResponseThrowable responseThrowable = ExceptionHandler.handleException(e);

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/linearlayout_divider_height_gray"
+    android:background="@color/white"
+    android:showDividers="middle"
+    android:dividerPadding="2dp"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/forget_check_phonenum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_5dp"
+        android:inputType="phone"
+        style="@style/edittextStyle"
+        android:hint="手机号"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/forget_check_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/edittextStyle"
+            android:hint="验证码"/>
+
+        <Button
+            android:id="@+id/forget_check_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/padding_5dp"
+            android:background="@drawable/countdown_bg_gray"
+            android:layout_alignParentRight="true"
+            android:text="@string/reg_getCheck_code"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/forget_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:enabled="false"
+        android:background="@drawable/countdown_bg_gray"
+        android:textColor="@color/white"
+        android:text="下一页"/>
+</LinearLayout>

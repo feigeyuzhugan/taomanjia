@@ -15,7 +15,7 @@ public interface IRegView extends IBaseView{
      * @param
      */
 //    void postPhonecode(RegPhoneNumCheckRes regPhoneNumCheckRes);
-    void regSuccess(RegUserRes regUserRes);//注册成功
+    void regSuccess(String reg);//注册成功
     void next();//下一页
 
 }

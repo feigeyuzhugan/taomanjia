@@ -366,6 +366,7 @@ public class RetrofitUtil {
             @Override
             public boolean test(LifeCycleEvent lifeCycleEvent) throws Exception {
                 //当生命周期为event状态时，发射事件
+                LogUtil.e("---测试",lifeCycleEvent.ordinal());
                 return lifeCycleEvent.equals(event);
             }
         }).take(1);
@@ -414,6 +415,7 @@ public class RetrofitUtil {
                     //没超过最大重试次数的话则进行重试
                     if (++retryCount <= retryCountMax) {
                         //延迟retryDelaySeconds后开始重试
+                        LogUtil.e("-apply--");
                         return Observable.timer(retryDelaySeconds, TimeUnit.SECONDS);
                     }
 

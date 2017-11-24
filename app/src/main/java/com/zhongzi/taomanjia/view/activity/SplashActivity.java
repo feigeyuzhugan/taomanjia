@@ -15,7 +15,7 @@ import com.zhongzi.taomanjia.view.activity.base.BaseActivity;
 
 public class SplashActivity extends BaseActivity implements ISplashView {
 
-    ImageView imageView;
+    private ImageView imageView;
     private SplashPrestenter prestenter;
 
     @Override

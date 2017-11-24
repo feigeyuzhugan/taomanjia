@@ -7,9 +7,6 @@ package com.zhongzi.taomanjia.app.constants;
 
 public interface UrlConstants {
     //    String HOST_SITE_HTTPS = "https://api.douban.com/";
-//
-//    String GET_PLAYING_MOVIE = "v2/movie/in_theaters";
-//    String GET_COMMING_MOVIE = "v2/movie/coming_soon";
     String HOST_SITE_HTTP = "http://hyu3451540001.my3w.com/public/api/";
 
     String GETPRODUCTLIST = "getProductList";//获取商品列表
@@ -20,5 +17,8 @@ public interface UrlConstants {
     String POSTMOBILEVERIFICATIONCODE = "postMobileVerificationCode";
     //注册新用户
     String POSTADDREGISTERUSERINFO = "addregisterUserInfo";
-
+    //用户登录
+    String POSTLOGINUSERINFO="postLoginUserInfo";
+    //用户中心获取用户信息
+   String POSTUSERCENTERINFO="userCenterInfo";
 }

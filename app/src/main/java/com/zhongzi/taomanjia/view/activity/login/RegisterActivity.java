@@ -13,6 +13,7 @@ import com.zhongzi.taomanjia.model.entity.res.RegUserRes;
 import com.zhongzi.taomanjia.presenter.RegisterPresenter;
 import com.zhongzi.taomanjia.presenter.iView.IRegView;
 import com.zhongzi.taomanjia.utils.EventBusUtil;
+import com.zhongzi.taomanjia.utils.ToastUtil;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
 import com.zhongzi.taomanjia.view.activity.base.ToolbarBaseActivity;
 import com.zhongzi.taomanjia.view.fragment.base.BaseFragment;
@@ -34,7 +35,7 @@ public class RegisterActivity extends ToolbarBaseActivity implements IRegView{
     @BindView(R.id.reg_phonenum_check)
     TextView regPhonenumCheck;
     @BindView(R.id.reg_bg)
-    LinearLayout regCommit;
+    LinearLayout regbg;//顶部的背景
     private RegCheckPhoneNumFragment phonenumFragemnt;
     private BaseFragment mCurrentFragment;
     private RegisterPresenter mRegisterPresenter;
@@ -109,14 +110,15 @@ public class RegisterActivity extends ToolbarBaseActivity implements IRegView{
     }
 
     @Override
-    public void regSuccess(RegUserRes regUserRes) {
-        LogUtil.e(regUserRes);
+    public void regSuccess(String regUserRes) {
+        ToastUtil.show(regUserRes);
+        finish();
     }
 
     @Override
     public void next() {
         regPhonenumCheck.setEnabled(false);
-        regCommit.setBackgroundDrawable(getResources().getDrawable(R.drawable.forgetpassword_b2));
+        regbg.setBackgroundDrawable(getResources().getDrawable(R.drawable.forgetpassword_b2));
         addOrShow(getSupportFragmentManager().beginTransaction(), RegCommitFragment.newInstance());
     }
 }

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/user_login_rl"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:background="@drawable/user_login_bg">
+
+    <ImageView
+        android:id="@+id/user_login_setting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:src="@drawable/user_settings" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/user_login_photo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="30dp"
+        app:placeholderImage="@drawable/user_photo"
+        app:placeholderImageScaleType="fitXY"
+        app:roundAsCircle="true"
+        app:roundingBorderColor="@color/white"
+        app:roundingBorderPadding="@dimen/padding_3dp"
+        app:roundingBorderWidth="@dimen/padding_3dp" />
+
+    <TextView
+        android:id="@+id/user_login_uname"
+        style="@style/loginUserNameStyleWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_toRightOf="@id/user_login_photo"
+        android:text="测试" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/user_login_red_envelope_ll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="#51CBF9"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/userTopTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/user_text_red_envelope" />
+
+            <TextView
+                android:id="@+id/user_login_red_envelope"
+                style="@style/loginTextStyleWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="0.00"
+                android:textColor="#036A90" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/user_login_pension_benefits_ll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="#51CBF9"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/userTopTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/user_text_old_jifen" />
+
+            <TextView
+                android:id="@+id/user_login_pension_benefits"
+                style="@style/loginTextStyleWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="0.00"
+                android:textColor="#036A90" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/user_login_recommend_earnings_ll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="#51CBF9"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/userTopTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/user_text_share_jifen" />
+
+            <TextView
+                android:id="@+id/user_login_recommend_earnings"
+                style="@style/loginTextStyleWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="0.0"
+                android:textColor="#036A90" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/user_login_score_ll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#51CBF9"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/userTopTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/user_text_jinyuan" />
+
+            <TextView
+                android:id="@+id/user_login_score"
+                style="@style/loginTextStyleWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="0.00"
+                android:textColor="#036A90" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

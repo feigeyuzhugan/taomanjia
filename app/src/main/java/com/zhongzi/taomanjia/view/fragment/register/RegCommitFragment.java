@@ -65,7 +65,6 @@ public class RegCommitFragment extends BaseFragment {
 
     }
 
-
     @OnClick(R.id.reg_commit_ok)
     public void onViewClicked() {
         String userName=regCommitName.getText().toString().trim();

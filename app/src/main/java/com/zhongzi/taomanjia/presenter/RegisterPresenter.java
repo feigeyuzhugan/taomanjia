@@ -11,6 +11,7 @@ import com.zhongzi.taomanjia.presenter.base.BasePresenter;
 import com.zhongzi.taomanjia.presenter.iView.IRegView;
 import com.zhongzi.taomanjia.utils.StringUtils;
 import com.zhongzi.taomanjia.utils.ToastUtil;
+import com.zhongzi.taomanjia.utils.exception.NullException;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
 
 import java.util.HashMap;
@@ -36,7 +37,7 @@ public class RegisterPresenter extends BasePresenter<IRegView> {
      * @param phoneNum
      */
     public void postPhoneNum(String phoneNum){
-        LogUtil.e(phoneNum);
+//        LogUtil.e(phoneNum);
         if (!StringUtils.isMobileNO(phoneNum)){
             ToastUtil.show("手机号格式不正确");
             return;
@@ -60,6 +61,10 @@ public class RegisterPresenter extends BasePresenter<IRegView> {
     public void checkCode(String code){
 //        LogUtil.e("aa",mRegPhoneNumCheckRes.getCode());
 //        LogUtil.e(code);
+        if (mRegPhoneNumCheckRes==null){
+            ToastUtil.show("请输入手机号");
+            return;
+        }
        int code1=Integer.parseInt(code);
         if (code1==mRegPhoneNumCheckRes.getCode()){
             mIView.next();
@@ -74,32 +79,35 @@ public class RegisterPresenter extends BasePresenter<IRegView> {
      */
     public void registerUser(RegCommitEvent regcommitevent){
         if (regcommitevent!=null){
-            Map<String,String> map=new HashMap<>();
-            String userName=regcommitevent.getUserName();
-            String mobile=mRegPhoneNumCheckRes.getPhone();
-            String name=regcommitevent.getName();
-            String newPwd=regcommitevent.getNewPwd();
-            String checkPwd=regcommitevent.getCheckPwd();
-            String Introducer=regcommitevent.getIntroducer();
-            map.put("userName",userName);
-            map.put("mobile",mobile);
-            map.put("name",name);
-            map.put("newPwd",newPwd);
-            map.put("checkPwd",checkPwd);
-            map.put("Introducer",Introducer);
-            mRegisterModel.postRegisterUser(map, new HttpObserver<RegUserRes>() {
-                @Override
-                public void onNext(String title, RegUserRes regUserRes) {
-                    mIView.regSuccess(regUserRes);
-                }
-                @Override
-                public void onError(int errType, String errMessage) {
-                    LogUtil.e(errMessage);
-                }
-            },mIView.getLifeSubject());
+            try {
+                Map<String,String> map=new HashMap<>();
+                String userName=regcommitevent.getUserName();
+                String mobile=mRegPhoneNumCheckRes.getPhone();
+                String name=regcommitevent.getName();
+                String newPwd=regcommitevent.getNewPwd();
+                String checkPwd=regcommitevent.getCheckPwd();
+                String Introducer=regcommitevent.getIntroducer();
+                map.put("userName",userName);
+                map.put("mobile",mobile);
+                map.put("name",name);
+                map.put("newPwd",newPwd);
+                map.put("checkPwd",checkPwd);
+                map.put("Introducer",Introducer);
+                mRegisterModel.postRegisterUser(map, new HttpObserver<RegUserRes>() {
+                    @Override
+                    public void onNext(String title, RegUserRes regUserRes) {
+                        mIView.regSuccess(title);
+                    }
+                    @Override
+                    public void onError(int errType, String errMessage) {
+                        LogUtil.e(errMessage);
+                    }
+                },mIView.getLifeSubject());
+            }catch (NullException e){
+                ToastUtil.show(e.getMessage());
+            }
         }else {
             ToastUtil.show("用户信息不能为空...");
         }
     }
-
 }

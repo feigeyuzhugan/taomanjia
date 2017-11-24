@@ -2,7 +2,9 @@ package com.zhongzi.taomanjia.model.net;
 
 import com.zhongzi.taomanjia.app.constants.UrlConstants;
 import com.zhongzi.taomanjia.model.entity.res.BannerInfoRes;
+import com.zhongzi.taomanjia.model.entity.res.LoginRes;
 import com.zhongzi.taomanjia.model.entity.res.RegUserRes;
+import com.zhongzi.taomanjia.model.entity.res.UserInfoRes;
 import com.zhongzi.taomanjia.model.entity.res.base.HttpArrayResult;
 import com.zhongzi.taomanjia.model.entity.res.RegPhoneNumCheckRes;
 import com.zhongzi.taomanjia.model.entity.res.base.HttpResult;
@@ -34,6 +36,15 @@ public interface ApiService {
     //注册账户
     @FormUrlEncoded
     @POST(UrlConstants.POSTADDREGISTERUSERINFO)
-    Observable<HttpObserver<RegUserRes>> postRegUserRes(@FieldMap Map<String,String> flatmap);
+    Observable<HttpResult<RegUserRes>> postRegUserRes(@FieldMap Map<String,String> flatmap);
 
+    //登录用户
+    @FormUrlEncoded
+    @POST(UrlConstants.POSTLOGINUSERINFO)
+    Observable<HttpResult<LoginRes>> postLoginRes(@Field("userName") String userName, @Field("pwd") String pwd );
+
+    //个人用户中心数据
+    @FormUrlEncoded
+    @POST(UrlConstants.POSTUSERCENTERINFO)
+    Observable<HttpResult<UserInfoRes>> postUserInfo(@Field("userid") String userId);
 }

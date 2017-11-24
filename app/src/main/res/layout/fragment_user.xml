@@ -8,72 +8,79 @@
         android:layout_height="wrap_content"
         android:background="@color/gray_c"
         android:orientation="vertical">
-
+        <!--android:id="@+id/user_login_ok"-->
         <ViewStub
             android:id="@+id/user_login_ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout="@layout/include_user_login" />
-
+        <!--android:id="@+id/user_login_fail"-->
         <ViewStub
             android:id="@+id/user_login_fail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout="@layout/include_user_no_login" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:background="@color/white"
-            android:padding="@dimen/padding_10dp"
             android:divider="@drawable/linearlayout_divider_width_gray"
-            android:showDividers="middle"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_10dp"
+            android:showDividers="middle">
+
             <TextView
                 android:id="@+id/user_pending_payment"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_weight="1"
                 android:drawableTop="@drawable/icon_order_1"
-                android:text="@string/user_order_1"/>
+                android:gravity="center_horizontal"
+                android:text="@string/user_order_1" />
+
             <TextView
                 android:id="@+id/user_delivered"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_weight="1"
                 android:drawableTop="@drawable/icon_order_2"
-                android:text="@string/user_order_2"/>
+                android:gravity="center_horizontal"
+                android:text="@string/user_order_2" />
+
             <TextView
                 android:id="@+id/user_received"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_weight="1"
                 android:drawableTop="@drawable/icon_order_3"
-                android:text="@string/user_order_3"/>
+                android:gravity="center_horizontal"
+                android:text="@string/user_order_3" />
+
             <TextView
                 android:id="@+id/user_evaluated"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_weight="1"
                 android:drawableTop="@drawable/icon_order_4"
-                android:text="@string/user_order_4"/>
+                android:gravity="center_horizontal"
+                android:text="@string/user_order_4" />
+
             <TextView
                 android:id="@+id/user_return"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_weight="1"
                 android:drawableTop="@drawable/icon_order_5"
-                android:text="@string/user_order_5"/>
+                android:gravity="center_horizontal"
+                android:text="@string/user_order_5" />
         </LinearLayout>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/user_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

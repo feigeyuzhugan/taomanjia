@@ -28,7 +28,7 @@ public class BannerPresenter extends BasePresenter<IBannerView> {
         mBannerInfoModel.getBannerInfos(new HttpArrayObserver<BannerInfoRes>() {
             @Override
             public void onNext(String title, List<BannerInfoRes> list) {
-                Log.e(TAG, "onNext: "+list.get(0).toString());
+//                Log.e(TAG, "onNext: "+list.get(0).toString());
                 mIView.getBannerInfoSuccess(list);
             }
 

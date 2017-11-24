@@ -8,7 +8,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
+import com.zhongzi.taomanjia.presenter.LoginPrestener;
+import com.zhongzi.taomanjia.presenter.iView.ILoginView;
+import com.zhongzi.taomanjia.utils.ToastUtil;
 import com.zhongzi.taomanjia.utils.UiUtils;
+import com.zhongzi.taomanjia.utils.log.LogUtil;
 import com.zhongzi.taomanjia.view.activity.base.ToolbarBaseActivity;
 
 import butterknife.BindView;
@@ -20,7 +24,7 @@ import butterknife.OnClick;
  * 登录界面
  */
 
-public class LoginActivity extends ToolbarBaseActivity {
+public class LoginActivity extends ToolbarBaseActivity implements ILoginView{
 
     @BindView(R.id.login_name)
     EditText loginName;
@@ -35,6 +39,10 @@ public class LoginActivity extends ToolbarBaseActivity {
     @BindView(R.id.login_forget_pwd)
     TextView loginForgetPwd;
 
+    private LoginPrestener mLoginPrestener;
+    private String username=null;
+    private String pwd=null;
+
     @Override
     protected void setContentLayout() {
         setContentView(R.layout.activity_login);
@@ -42,12 +50,13 @@ public class LoginActivity extends ToolbarBaseActivity {
 
     @Override
     protected void initView() {
-
+        mLoginPrestener=new LoginPrestener(this);
     }
 
     @Override
     protected void obtainData() {
-        getToolbar().setTitle("登录");
+//        getToolbar().setTitle("登录");
+        setToolbarCenterTitle("登录");
     }
 
     @Override
@@ -60,12 +69,29 @@ public class LoginActivity extends ToolbarBaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.login_commit:
+                username=loginName.getText().toString().trim();
+                pwd=loginPwd.getText().toString().trim();
+                mLoginPrestener.postLogin(this,username,pwd);
                 break;
             case R.id.login_reg:
                 UiUtils.startActivity(this,RegisterActivity.class);
                 break;
             case R.id.login_forget_pwd:
+                UiUtils.startActivity(this,ForgetActivity.class);
                 break;
         }
+    }
+
+    @Override
+    public void success() {
+//        LogUtil.e("-------登录成功----");
+        mLoginPrestener.loge(this);
+        finish();
+    }
+
+    @Override
+    public void fail() {
+        ToastUtil.show("账号或密码错误");
+//        LogUtil.e("-------失败成功----");
     }
 }

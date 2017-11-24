@@ -27,6 +27,7 @@
         <activity android:name=".view.activity.setting.SuggestionActivity"/>
         <activity android:name=".view.activity.login.LoginActivity"/>
         <activity android:name=".view.activity.login.RegisterActivity"/>
+        <activity android:name=".view.activity.login.ForgetActivity"/>
     </application>
 
 </manifest>

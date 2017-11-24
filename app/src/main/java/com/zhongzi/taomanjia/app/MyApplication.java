@@ -1,10 +1,14 @@
 package com.zhongzi.taomanjia.app;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
+import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.model.net.RetrofitUtil;
 import com.zhongzi.taomanjia.utils.EventBusUtil;
 import com.zhongzi.taomanjia.utils.FrescoUtil;
+import com.zhongzi.taomanjia.utils.PreferenceUtil;
 import com.zhongzi.taomanjia.utils.ToastUtil;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
 
@@ -17,6 +21,7 @@ public class MyApplication extends Application {
     public static MyApplication getInstance() {
         return instance;
     }
+    private  SharedPreferences sp=null;
 
     @Override
     public void onCreate() {
@@ -34,6 +39,7 @@ public class MyApplication extends Application {
         RetrofitUtil.init(this);//初始化retrofit
         FrescoUtil.getInstance().initializeFresco(this);//初始化Fresco
         EventBusUtil.openIndex();//开启Index加速
-
     }
+
+
 }

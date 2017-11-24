@@ -12,14 +12,23 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 //import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.zhongzi.taomanjia.R;
+import com.zhongzi.taomanjia.app.constants.BaseConstants;
+import com.zhongzi.taomanjia.model.entity.eventbus.LoginEvent;
+import com.zhongzi.taomanjia.model.entity.eventbus.forget.UserCenterToEvent;
+import com.zhongzi.taomanjia.utils.EventBusUtil;
+import com.zhongzi.taomanjia.utils.UiUtils;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
 import com.zhongzi.taomanjia.view.activity.base.BaseActivity;
 import com.zhongzi.taomanjia.view.activity.base.ToolbarBaseActivity;
+import com.zhongzi.taomanjia.view.activity.login.LoginActivity;
 import com.zhongzi.taomanjia.view.fragment.MainFragment;
 import com.zhongzi.taomanjia.view.fragment.ProductFragment;
 import com.zhongzi.taomanjia.view.fragment.ShoppingFragment;
 import com.zhongzi.taomanjia.view.fragment.UserFragment;
 import com.zhongzi.taomanjia.view.fragment.base.BaseFragment;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 
@@ -146,6 +155,30 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     protected void initEvent() {
+        EventBusUtil.register(this);
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBusUtil.unregister(this);
+    }
+//    //公共的
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void goLogin(LoginEvent event){
+//        UiUtils.startActivity(event.getmContext(), LoginActivity.class);
+//    }
+
+    //user界面跳转转某个界面
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void goActivty(UserCenterToEvent event){
+        switch (event.getType()){
+            case BaseConstants.SETTINGACTIVITY:
+                UiUtils.startActivity(this,SettingActivity.class);
+                break;
+            case BaseConstants.LOGINACTIVITY:
+                UiUtils.startActivity(this,LoginActivity.class);
+                break;
+        }
     }
 }

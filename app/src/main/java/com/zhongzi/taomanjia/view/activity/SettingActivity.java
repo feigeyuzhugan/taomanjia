@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
+import com.zhongzi.taomanjia.presenter.SettingPresenter;
+import com.zhongzi.taomanjia.presenter.iView.ISettingView;
+import com.zhongzi.taomanjia.utils.ToastUtil;
 import com.zhongzi.taomanjia.utils.UiUtils;
 import com.zhongzi.taomanjia.view.activity.base.ToolbarBaseActivity;
 import com.zhongzi.taomanjia.view.activity.setting.AboutUsActivity;
@@ -20,7 +23,7 @@ import butterknife.OnClick;
  * 设置界面
  */
 
-public class SettingActivity extends ToolbarBaseActivity {
+public class SettingActivity extends ToolbarBaseActivity implements ISettingView{
 
     @BindView(R.id.setting_about)
     TextView settingAbout;
@@ -31,6 +34,7 @@ public class SettingActivity extends ToolbarBaseActivity {
     @BindView(R.id.settint_exit)
     Button settintExit;
 
+    private SettingPresenter mSettingPresenter;
     @Override
     protected void setContentLayout() {
         setContentView(R.layout.activity_setting);
@@ -38,7 +42,8 @@ public class SettingActivity extends ToolbarBaseActivity {
 
     @Override
     protected void initView() {
-
+        mSettingPresenter=new SettingPresenter(this);
+        mSettingPresenter.loginning(this);
     }
 
     @Override
@@ -48,7 +53,6 @@ public class SettingActivity extends ToolbarBaseActivity {
 
     @Override
     protected void initEvent() {
-
     }
 
     @OnClick({R.id.setting_about, R.id.setting_suggestion, R.id.setting_check, R.id.settint_exit})
@@ -63,8 +67,20 @@ public class SettingActivity extends ToolbarBaseActivity {
             case R.id.setting_check:
                 break;
             case R.id.settint_exit:
+                mSettingPresenter.exit(this);
                 break;
         }
     }
 
+    @Override
+    public void exit() {
+        ToastUtil.show("退出应用");
+
+        finish();
+    }
+
+    @Override
+    public void hide() {
+        settintExit.setVisibility(View.GONE);
+    }
 }

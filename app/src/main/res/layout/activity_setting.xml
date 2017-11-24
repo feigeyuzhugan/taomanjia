@@ -23,9 +23,12 @@
         android:text="@string/setting_check"/>
 
     <Button
+        android:layout_margin="@dimen/margin_10dp"
         android:id="@+id/settint_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/selector_bule_gray_btn"
+        android:textColor="@color/white"
         android:text="退出"/>
 
 </LinearLayout>

@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.zhongzi.taomanjia"
+        applicationId "com.zhongzi.taomanjia.cs"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -48,7 +48,6 @@ dependencies {
     //EventBus
     compile 'org.greenrobot:eventbus:3.0.0'
 //    annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.0.1'//用于eventbus开启Index加速
-
 
     //Rxjava2 & RxAndroid2
     compile 'io.reactivex.rxjava2:rxjava:2.1.6'
