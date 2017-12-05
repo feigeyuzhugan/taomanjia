@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
+import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.presenter.SettingPresenter;
 import com.zhongzi.taomanjia.presenter.iView.ISettingView;
 import com.zhongzi.taomanjia.utils.ToastUtil;
@@ -59,10 +60,10 @@ public class SettingActivity extends ToolbarBaseActivity implements ISettingView
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.setting_about:
-                UiUtils.startActivity(this, AboutUsActivity.class);
+                UiUtils.startActivity(this, BaseConstants.ABOUT_US,BaseConstants.CHECK_LOGIN);
                 break;
             case R.id.setting_suggestion:
-                UiUtils.startActivity(this, SuggestionActivity.class);
+                UiUtils.startActivity(this, BaseConstants.SUGGESTION,BaseConstants.CHECK_LOGIN);
                 break;
             case R.id.setting_check:
                 break;

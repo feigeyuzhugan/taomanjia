@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/spending_redenvelopes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/spending_cash"
+        style="@style/textStyle"
+        android:text="红包账户"/>
+
+    <TextView
+        android:id="@+id/spending_cash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/spending_financial"
+        style="@style/textStyle"
+        android:text="现金账户"/>
+    <TextView
+        android:id="@+id/spending_pension"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/spending_provide"
+        style="@style/textStyle"
+        android:text="养老积分"/>
+    <TextView
+        android:id="@+id/spending_spirit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/spending_integral"
+        style="@style/textStyle"
+        android:text="盛世金元"/>
+    <TextView
+        android:id="@+id/spending_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/spending_tuijian"
+        style="@style/textStyle"
+        android:text="分享积分"/>
+
+</LinearLayout>

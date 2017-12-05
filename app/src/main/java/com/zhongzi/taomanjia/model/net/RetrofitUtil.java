@@ -418,7 +418,6 @@ public class RetrofitUtil {
                         LogUtil.e("-apply--");
                         return Observable.timer(retryDelaySeconds, TimeUnit.SECONDS);
                     }
-
                     return Observable.error(throwable);
                 }
             });

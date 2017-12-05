@@ -46,4 +46,9 @@ public class SplashActivity extends BaseActivity implements ISplashView {
         UiUtils.startActivity(this,MainActivity.class);
         finish();
     }
+
+    @Override
+    protected void initBarColor() {
+
+    }
 }

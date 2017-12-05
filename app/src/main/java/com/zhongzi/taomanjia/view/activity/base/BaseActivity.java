@@ -90,16 +90,19 @@ public abstract class BaseActivity extends AbstractActivity implements IBaseActi
 
     }
 
+    protected abstract void initBarColor();
+
+
     private void init() {
         mStackManager = ActivityStackManager.getInstance();
         mStackManager.pushOneActivity(this);
 
     }
 
-    private void initBarColor() {
-        int color = getResourceColor(R.color.top_background);
-        setBarColor(color, 0, color, 0);
-    }
+//    public void initBarColor() {
+//        int color = getResourceColor(R.color.top_background);
+//        setBarColor(color, 0, color, 0);
+//    }
 
 
     public UltimateBar getUltimateBar() {

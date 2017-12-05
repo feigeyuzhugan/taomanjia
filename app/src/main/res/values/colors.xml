@@ -17,7 +17,14 @@
     <color name="transparent">#00000000</color>
     <color name="white">#ffffffff</color>
     <color name="gray_c">#ffcccccc</color>
+    <color name="gray_d">#898A8C</color>
     <color name="black_4d">#4d4d4d</color>
     <color name="black">#000000</color>
 
+    <color name="red">#ff0000</color>
+    <color name="line">#ffd3dde6</color>
+
+    <!--地址选择-->
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <!--地址选择-->
 </resources>

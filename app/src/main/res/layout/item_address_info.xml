@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_15dp"
+    android:background="@color/white"
+    android:layout_margin="@dimen/padding_8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_addressinfo_recipient_name"
+            style="@style/addressTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_addressinfo_recipient_name" />
+
+        <TextView
+            android:id="@+id/item_addressinfo_recipient_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/item_addressinfo_recipient_phone"
+            android:textColor="@color/gray_d"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/item_addressinfo_recipient_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text="@string/item_addressinfo_recipient_address"
+        android:textColor="@color/gray_d"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="15dp"
+        android:background="#d7d7d7" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_5dp"
+        android:paddingBottom="@dimen/padding_5dp">
+
+        <TextView
+            android:id="@+id/item_addressinfo_isdefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@drawable/address_nodefault"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/item_addressinfo_recipient_setdefault"
+            android:textColor="@color/gray_d"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/item_addressinfo_shanchu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@drawable/address_shanchu"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/item_addressinfo_recipient_shanchu"
+            android:textColor="@color/gray_d"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/item_addressinfo_bianji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/item_addressinfo_shanchu"
+            android:drawableLeft="@drawable/address_bianji"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/item_addressinfo_recipient_bianji"
+            android:textColor="@color/gray_d"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</LinearLayout>

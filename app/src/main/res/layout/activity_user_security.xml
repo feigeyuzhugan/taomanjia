@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/security_uppwd"
+        style="@style/textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/security_change_password"
+        android:text="@string/security_uppwd" />
+
+    <TextView
+        android:id="@+id/security_uppwd_pay"
+        style="@style/textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/security_change_pay"
+        android:text="@string/security_uppwd_pay" />
+
+
+    <TextView
+        android:id="@+id/security_upphone"
+        style="@style/textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/security_binding_mobile"
+        android:text="@string/security_upphone" />
+
+</LinearLayout>

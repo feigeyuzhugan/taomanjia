@@ -20,4 +20,18 @@ public class StringUtils  {
         Matcher m = p.matcher(mobiles);
         return m.find();
     }
+
+    /**
+     * 判断字符串是否为空 空返回false，反之返回true
+     *
+     * @param s
+     * @return
+     */
+    public static boolean isNoEmpty(String s) {
+        if ("".equals(s) || "null".equals(s) || "NULL".equals(s)
+                || "[]".equals(s) || "<null>".equals(s) || "<NULL>".equals(s) ||null == s) {
+            return false;
+        }
+        return true;
+    }
 }

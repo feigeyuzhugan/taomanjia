@@ -1,5 +1,6 @@
 package com.zhongzi.taomanjia.presenter.iView;
 
+import com.zhongzi.taomanjia.model.entity.res.UserInfoRes;
 import com.zhongzi.taomanjia.presenter.base.IBaseView;
 
 /**
@@ -10,4 +11,7 @@ import com.zhongzi.taomanjia.presenter.base.IBaseView;
 public interface IUserView extends IBaseView{
     void noLogin();//没有登录；
     void login();//登录了
+    void uploadePhoto(String path);
+
+    void getUserInfo(UserInfoRes userInfoRes);
 }

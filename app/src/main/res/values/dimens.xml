@@ -13,11 +13,16 @@
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="padding_10dp">10dp</dimen>
     <dimen name="padding_15dp">15dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
     <dimen name="margin_1dp">1dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_20dp">20dp</dimen>
     <dimen name="margin_30dp">30dp</dimen>
 
     <dimen name="textsize_common">13sp</dimen>
+    <dimen name="textsize_common_16">16sp</dimen>
 
+    <dimen name="refresh_header_height_twitter">80dp</dimen>
+    <dimen name="load_more_footer_height_twitter">60dp</dimen>
+    <dimen name="popup_height">383dp</dimen>
 </resources>

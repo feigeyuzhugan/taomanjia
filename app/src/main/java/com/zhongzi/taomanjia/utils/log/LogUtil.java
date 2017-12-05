@@ -9,7 +9,7 @@ import java.io.File;
 /**
  * This is a Log tool，with this you can the following
  * <ol>
- * <li>use LogUtil.d(),you could print whether the method execute,and the default tag is current
+ * <li>use LogUtil.d(),you could print whether the method execute,and the default_img tag is current
  * class's name</li>
  * <li>use LogUtil.d(msg),you could print log as before,and you could location the method with a
  * click in Android Studio Logcat</li>

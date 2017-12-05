@@ -57,6 +57,12 @@ public abstract class ToolbarBaseActivity extends BaseActivity {
         addViewToContainer(layoutResId);
     }
 
+    @Override
+    protected void initBarColor() {
+        int color = getResourceColor(R.color.top_background);
+        setBarColor(color, 0, color, 0);
+    }
+
     //将布局加入到LoadLayout中
     public void addViewToContainer(int layoutResId) {
         mLoadLayout = (LoadLayout) findViewById(R.id.base_content_layout);
@@ -64,7 +70,6 @@ public abstract class ToolbarBaseActivity extends BaseActivity {
         mLoadLayout.removeAllViews();
         mLoadLayout.addSuccessView(view);
     }
-
 
     public void init() {
         ButterKnife.bind(this);//butterknife绑定

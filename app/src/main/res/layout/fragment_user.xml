@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,12 +14,14 @@
             android:id="@+id/user_login_ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inflatedId="@+id/user_login_ok_inflate"
             android:layout="@layout/include_user_login" />
         <!--android:id="@+id/user_login_fail"-->
         <ViewStub
             android:id="@+id/user_login_fail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inflatedId="@+id/user_login_fail_inflate"
             android:layout="@layout/include_user_no_login" />
 
         <LinearLayout
@@ -35,8 +38,9 @@
             <TextView
                 android:id="@+id/user_pending_payment"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/selector_usercenter_order"
                 android:drawableTop="@drawable/icon_order_1"
                 android:gravity="center_horizontal"
                 android:text="@string/user_order_1" />
@@ -44,8 +48,9 @@
             <TextView
                 android:id="@+id/user_delivered"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/selector_usercenter_order"
                 android:drawableTop="@drawable/icon_order_2"
                 android:gravity="center_horizontal"
                 android:text="@string/user_order_2" />
@@ -53,8 +58,9 @@
             <TextView
                 android:id="@+id/user_received"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/selector_usercenter_order"
                 android:drawableTop="@drawable/icon_order_3"
                 android:gravity="center_horizontal"
                 android:text="@string/user_order_3" />
@@ -62,8 +68,9 @@
             <TextView
                 android:id="@+id/user_evaluated"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/selector_usercenter_order"
                 android:drawableTop="@drawable/icon_order_4"
                 android:gravity="center_horizontal"
                 android:text="@string/user_order_4" />
@@ -71,16 +78,23 @@
             <TextView
                 android:id="@+id/user_return"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/selector_usercenter_order"
                 android:drawableTop="@drawable/icon_order_5"
                 android:gravity="center_horizontal"
                 android:text="@string/user_order_5" />
         </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
+        <com.zhongzi.taomanjia.view.widget.MyGridView
             android:id="@+id/user_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:horizontalSpacing="0dp"
+            android:numColumns="4"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="0dp" />
     </LinearLayout>
 </ScrollView>

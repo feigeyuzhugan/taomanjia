@@ -23,7 +23,7 @@ public class FileUtil {
     /**
      * SD卡是否能用
      *
-     * @return true 可用,false不可用
+     * @return true 可用,false不可用getExternalStorageDirectory
      */
     public static boolean isSDCardAvailable() {
         try {

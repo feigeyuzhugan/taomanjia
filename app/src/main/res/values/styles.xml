@@ -49,11 +49,24 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">13sp</item>
     </style>
+    <style name="addressTextStyle">
+        <item name="android:textColor">#4A4A4A</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Button_Style_ok">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:background">@drawable/selector_bule_gray_btn</item>
+        <item name="android:layout_marginTop">@dimen/margin_20dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin_10dp</item>
+        <item name="android:layout_marginRight">@dimen/margin_10dp</item>
+    </style>
     <!--条目的布局情况 -->
     <style name="textStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:padding">@dimen/padding_10dp</item>
+        <item name="android:padding">@dimen/padding_15dp</item>
         <item name="android:drawablePadding">@dimen/padding_10dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:drawableRight">@drawable/rightbtn</item>
@@ -72,6 +85,16 @@
         <item name="android:layout_margin">@dimen/margin_1dp</item>
         <item name="android:textSize">@dimen/textsize_common</item>
     </style>
+    <!--dialog条目的布局情况 -->
+    <style name="textStyle_dialog">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/padding_20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_margin">@dimen/margin_1dp</item>
+        <item name="android:textSize">@dimen/textsize_common_16</item>
+    </style>
     <!--
         edittext的整合
           android:layout_centerVertical="true"
@@ -86,4 +109,28 @@
 <!--    <style name="edittextStyle_centerVertical" parent="edittextStyle">
         <item name="layout_centerVertical">true</item>
     </style>-->
+    <!--地址选择-->
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+    <style name="address_CustomDatePickerDialog" parent="@style/AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <!--地址选择-->
+
+
+
 </resources>

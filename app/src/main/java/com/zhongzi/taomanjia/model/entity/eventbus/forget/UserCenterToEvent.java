@@ -4,6 +4,7 @@ package com.zhongzi.taomanjia.model.entity.eventbus.forget;
  * Created by Administrator on 2017/11/23.
  * 用于从个人中心跳转的到某个界面的event
  * 1，设置界面
+ * 权限申请---------------照相的权限申请1001
  */
 public class UserCenterToEvent {
 

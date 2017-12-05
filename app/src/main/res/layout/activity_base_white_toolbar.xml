@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/base_white_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!-- app:elevation设置z轴高度(阴影) 5.0及以上支持-->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/base_white_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:elevation="0dp"
+        >
+
+        <!-- 24.+版本后的toolbar的icon与标题之间默认会多出16dp间距，
+        所以需要加上contentInsetStartWithNavigation属性来恢复正常距离 -->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/base_white_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_base_toolbar_height"
+            android:background="@color/white"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@mipmap/ic_return_black"
+            app:titleTextColor="@color/black"
+            >
+
+            <TextView
+                android:id="@+id/tv_white_center_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_white_toolbar_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+        <ViewStub
+            android:id="@+id/base_white_collapsible_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.zhongzi.taomanjia.view.widget.loadlayout.LoadLayout
+        android:id="@+id/base_white_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+</android.support.design.widget.CoordinatorLayout>

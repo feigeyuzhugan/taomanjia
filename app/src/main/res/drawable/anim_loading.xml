@@ -3,27 +3,30 @@
                 android:oneshot="false">
 
     <item
-        android:drawable="@mipmap/ic_loading1"
+        android:drawable="@mipmap/loading_1"
         android:duration="250">
     </item>
     <item
-        android:drawable="@mipmap/ic_loading2"
+        android:drawable="@mipmap/loading_2"
         android:duration="250">
     </item>
     <item
-        android:drawable="@mipmap/ic_loading3"
+        android:drawable="@mipmap/loading_3"
         android:duration="250">
     </item>
     <item
-        android:drawable="@mipmap/ic_loading4"
+        android:drawable="@mipmap/loading_4"
         android:duration="250">
     </item>
     <item
-        android:drawable="@mipmap/ic_loading5"
+        android:drawable="@mipmap/loading_5"
         android:duration="250">
     </item>
     <item
-        android:drawable="@mipmap/ic_loading6"
+        android:drawable="@mipmap/loading_6"
+        android:duration="250"/>
+    <item
+        android:drawable="@mipmap/loading_7"
         android:duration="250">
     </item>
 

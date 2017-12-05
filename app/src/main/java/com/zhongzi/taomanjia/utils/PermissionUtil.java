@@ -12,6 +12,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
+import com.zhongzi.taomanjia.app.constants.BaseConstants;
+import com.zhongzi.taomanjia.utils.log.LogUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +60,8 @@ public class PermissionUtil {
      * @return 是否已经获取权限，没有自动申请
      */
     public static boolean getCameraPermissions(@NonNull Activity activity, int requestCode) {
+        boolean hasCameraPermissions=hasPermissons(activity,Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (hasCameraPermissions) return true;
         return requestPerssions(activity, requestCode, Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
     /**
@@ -192,6 +197,7 @@ public class PermissionUtil {
         if (deniedPermissions != null) {
             ActivityCompat.requestPermissions(activity, deniedPermissions.toArray(new String[deniedPermissions.size()]), requestCode);
             //返回结果onRequestPermissionsResult
+            LogUtil.e("aaaaaaaaaaaaaaaaaaaaaa");
             return false;
         }else {
             return true;

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhongzi.taomanjia">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <uses-permission android:name="android.permission.INTERNET" /><!--网络-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /><!--WiFi-->
+    <uses-permission android:name="android.permission.BLUETOOTH" /><!--蓝牙-->
+    <uses-permission android:name="android.permission.CAMERA" /><!--照相-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><!--存储-读-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><!--存储-写-->
+
 
     <application
         android:name=".app.MyApplication"
@@ -20,14 +25,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.MainActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".view.activity.SettingActivity"/>
-        <activity android:name=".view.activity.setting.AboutUsActivity"/>
-        <activity android:name=".view.activity.setting.SuggestionActivity"/>
-        <activity android:name=".view.activity.login.LoginActivity"/>
-        <activity android:name=".view.activity.login.RegisterActivity"/>
-        <activity android:name=".view.activity.login.ForgetActivity"/>
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".view.activity.SettingActivity" />
+        <activity android:name=".view.activity.setting.AboutUsActivity" />
+        <activity android:name=".view.activity.setting.SuggestionActivity" />
+        <activity android:name=".view.activity.login.LoginActivity" />
+        <activity android:name=".view.activity.login.RegisterActivity" />
+        <activity android:name=".view.activity.login.ForgetActivity" />
+
+        <!--订单-->
+        <activity android:name=".view.activity.order.OrderAllActivity" />
+        <activity android:name=".view.activity.order.OrderReturnActivity" />
+        <activity android:name=".view.activity.order.OrderDeliveredActivity" />
+        <activity android:name=".view.activity.order.OrderEvaluated" />
+        <activity android:name=".view.activity.order.OrderPaymentActivity" />
+        <activity android:name=".view.activity.order.OrderReceivedActivity" />
+        <!--订单-->
+        <!--个人中心-->
+        <activity android:name=".view.activity.user.UserContactActivity" />
+        <activity android:name=".view.activity.user.UserAddressActivity" />
+        <activity android:name=".view.activity.user.UserBankcardActivity" />
+        <activity android:name=".view.activity.user.UserCodeActivity" />
+
+        <activity android:name=".view.activity.user.UserCollectionActivity" />
+        <activity android:name=".view.activity.user.UserDownloadActivity" />
+        <activity android:name=".view.activity.user.UserProfileActivity" />
+        <activity android:name=".view.activity.user.UserSecuritycenterActivity" />
+
+        <activity android:name=".view.activity.user.UserSharedActivity" />
+        <activity android:name=".view.activity.user.UserSpendingActivity" />
+        <activity android:name=".view.activity.user.UserSystemActivity" />
+        <activity android:name=".view.activity.bankcard.BindingBankcardActivity"/>
+
+        <activity android:name=".view.activity.money.MoneyCashActivity"/>
+        <activity android:name=".view.activity.money.MoneyPensionActivity"/>
+        <activity android:name=".view.activity.money.MoneyRedEnvelopesActivity"/>
+        <activity android:name=".view.activity.money.MoneySharedActivity"/>
+        <activity android:name=".view.activity.money.MoneySpiritActivity"/>
+        <activity android:name=".view.activity.money.MoneyRuleActivity"/>
+        <!--地址信息-->
+        <activity android:name=".view.activity.address.AddAddressActivity"/>
+        <!--地址信息-->
+        <!--个人中心-->
+
     </application>
 
 </manifest>

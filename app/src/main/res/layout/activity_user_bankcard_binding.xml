@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/reg_default"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:text="@string/cash_user_bind_note"
+        android:textColor="@color/gray_c"
+        android:textSize="16sp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/linearlayout_divider_height_gray"
+            android:orientation="vertical"
+            android:showDividers="middle|beginning">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/binding_bankname_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:textColorHint="@color/black_4d"
+                app:counterOverflowTextAppearance="@color/red">
+
+                <EditText
+                    android:id="@+id/binding_bankname_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/cash_user_bind_bank"
+                    android:inputType="text"
+                    android:textSize="16sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/binding_bankno_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:textColorHint="@color/black_4d"
+                app:counterOverflowTextAppearance="@color/red">
+
+                <EditText
+                    android:id="@+id/binding_bankno_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/cash_user_bind_bank_number"
+                    android:inputType="numberSigned"
+                    android:textSize="16sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/binding_bank_username_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:textColorHint="@color/black_4d"
+                app:counterOverflowTextAppearance="@color/red">
+
+                <EditText
+                    android:id="@+id/binding_bank_username_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/cash_user_bind_name"
+                    android:inputType="text"
+                    android:textSize="16sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="@string/cash_user_bind_bank_type"
+                android:textSize="16sp" />
+
+
+            <Button
+                android:id="@+id/binding_bankcard_commit"
+                style="@style/Button_Style_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/applybinding" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -108,7 +108,7 @@ public abstract class BaseFragment extends  Fragment implements IBaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.e("onActivityCreated: ","-------------" );
+//        Log.e("onActivityCreated: ","-------------" );
         //视图准备完毕
         isViewReady = true;
         //如果视图准备完毕且Fragment处于可见状态，则开始初始化操作
@@ -121,7 +121,7 @@ public abstract class BaseFragment extends  Fragment implements IBaseFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        Log.e( "setUserVisibleHint: ","----------" );
+//        Log.e( "setUserVisibleHint: ","----------" );
         isFragmentVisible = isVisibleToUser;
         //如果视图准备完毕且Fragment处于可见状态，则开始初始化操作
         if (isViewReady && isFragmentVisible) onFragmentVisiable();
@@ -139,7 +139,7 @@ public abstract class BaseFragment extends  Fragment implements IBaseFragment {
 
     public void onFragmentVisiable() {
         if (!isLoaded) {
-            Log.e( "onFragmentVisiable: ", "------------");
+//            Log.e( "onFragmentVisiable: ", "------------");
             isLoaded = true;
             initView();
             obtainData();

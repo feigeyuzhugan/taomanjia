@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/user_text_old_jifen" />
+                android:text="@string/user_text_pension" />
 
             <TextView
                 android:id="@+id/user_login_pension_benefits"
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/user_text_share_jifen" />
+                android:text="@string/user_text_share" />
 
             <TextView
                 android:id="@+id/user_login_recommend_earnings"
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/user_text_jinyuan" />
+                android:text="@string/user_text_spirit" />
 
             <TextView
                 android:id="@+id/user_login_score"

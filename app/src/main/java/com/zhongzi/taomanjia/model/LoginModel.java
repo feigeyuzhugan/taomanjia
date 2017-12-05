@@ -49,6 +49,7 @@ public class LoginModel {
         SharedPreferences.Editor mEditor=sp.edit();
         mEditor.putString("id",loginRes.getId());
         mEditor.putString("userName",loginRes.getUserName());
+        mEditor.putString("phone",loginRes.getPhone());
         mEditor.commit();
     }
 
@@ -81,6 +82,20 @@ public class LoginModel {
     }
 
     /**
+     * 获取手机号
+     * @param context
+     * @return
+     */
+    public String getPhoneNum(Context context){
+        sp= PreferenceUtil.getPreference(context, BaseConstants.APP_LOGIN_USER,Context.MODE_PRIVATE);
+        String phone= sp.getString("phone",null);
+        if (phone==null||phone.isEmpty()){
+            throw new NullException("没有登录");
+        }
+        return phone;
+    }
+
+    /**
      * 清空
      * @param context
      */
@@ -89,6 +104,9 @@ public class LoginModel {
         SharedPreferences.Editor mEditor=sp.edit();
         mEditor.putString("id",null);
         mEditor.putString("userName",null);
+        mEditor.putString("phone",null);
         mEditor.commit();
     }
+
+
 }

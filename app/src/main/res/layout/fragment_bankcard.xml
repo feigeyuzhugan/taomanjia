@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/linearlayout_divider_height_gray"
+    android:showDividers="middle|end"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <TextView
+        android:id="@+id/bankcard_bankno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"/>
+    <TextView
+        android:id="@+id/bankcard_useraccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"/>
+    <TextView
+        android:id="@+id/bankcard_bankname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"/>
+    <TextView
+        android:id="@+id/bankcard_usertypestr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"/>
+    <TextView
+        android:id="@+id/bankcard_userstatusstr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"/>
+</LinearLayout>
