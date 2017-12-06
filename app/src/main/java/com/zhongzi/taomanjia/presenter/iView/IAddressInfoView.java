@@ -14,4 +14,5 @@ public interface IAddressInfoView extends IBaseView{
 
     void success(List<AddressInfoRes> list);
     void deleteSuccess(String str);
+    void isDefault();
 }

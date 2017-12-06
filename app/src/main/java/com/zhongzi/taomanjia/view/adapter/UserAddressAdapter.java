@@ -1,6 +1,7 @@
 package com.zhongzi.taomanjia.view.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
+import com.zhongzi.taomanjia.app.constants.BaseConstants;
+import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressEvent;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressInfoRes;
+import com.zhongzi.taomanjia.utils.EventBusUtil;
 
 import java.util.List;
 
@@ -19,21 +23,14 @@ import java.util.List;
 
 public class UserAddressAdapter extends RecyclerView.Adapter<UserAddressAdapter.MyViewHolder> {
     private List<AddressInfoRes> mList;
-    private UserAddressRemoveListener mRemoveListener;
-    private UserAddressEditorListener mEditorListener;
-//    private Context mContext;
+    private Context mContext;
     private LayoutInflater inflater;
 
-    public void setEditorListener(UserAddressEditorListener editorListener) {
-        this.mEditorListener = editorListener;
-    }
 
-    public void setRemoveListener(UserAddressRemoveListener removeListener) {
-        this.mRemoveListener = removeListener;
-    }
 
     public UserAddressAdapter(List<AddressInfoRes> list,Context context){
         this.mList=list;
+        mContext=context;
         inflater=LayoutInflater.from(context);
     }
 
@@ -54,13 +51,30 @@ public class UserAddressAdapter extends RecyclerView.Adapter<UserAddressAdapter.
         holder.bianji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditorListener.editor(position);
+                EventBusUtil.postEvent(new AddressEvent(BaseConstants.ADDRESS_EDITOR,position));
             }
         });
         holder.shanchu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mRemoveListener.remove(position);
+                EventBusUtil.postEvent(new AddressEvent(BaseConstants.ADDRESS_REMOVE,position));
+            }
+        });
+        if (res.getIsDefault().equals("0")){
+//            holder.isdefault.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.address_nodefault));
+            Drawable drawable = mContext.getResources().getDrawable(R.drawable.address_nodefault);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight()); //设置边界
+            holder.isdefault.setCompoundDrawables(drawable, null, null, null);//画在左边
+        }else {
+            Drawable drawable = mContext.getResources().getDrawable(R.drawable.address_default);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight()); //设置边界
+            holder.isdefault.setCompoundDrawables(drawable, null, null, null);//画在左边
+//            holder.isdefault.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.address_default));
+        }
+        holder.isdefault.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBusUtil.postEvent(new AddressEvent(BaseConstants.ADDRESS_DEFAULT,position));
             }
         });
     }
@@ -90,10 +104,9 @@ public class UserAddressAdapter extends RecyclerView.Adapter<UserAddressAdapter.
             bianji=(TextView) itemView.findViewById(R.id.item_addressinfo_bianji);
         }
     }
-    public interface UserAddressRemoveListener{
+/*    public interface UserAddressListener{
         void remove(int position);
-    }
-    public interface UserAddressEditorListener{
         void editor(int position);
-    }
+        void isDefault(int position);
+    }*/
 }

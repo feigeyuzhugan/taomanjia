@@ -10,18 +10,26 @@ import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.app.constants.BaseConstants;
+import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressEvent;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfo;
+import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfoEvent;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressInfoRes;
 import com.zhongzi.taomanjia.presenter.address.AddressInfoPresenter;
 import com.zhongzi.taomanjia.presenter.iView.IAddressInfoView;
+import com.zhongzi.taomanjia.utils.EventBusUtil;
 import com.zhongzi.taomanjia.utils.MaterialDialogUtils;
 import com.zhongzi.taomanjia.utils.ToastUtil;
 import com.zhongzi.taomanjia.utils.UiUtils;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
 import com.zhongzi.taomanjia.view.activity.base.ToolbarBaseActivity;
 import com.zhongzi.taomanjia.view.adapter.UserAddressAdapter;
+import com.zhongzi.taomanjia.view.widget.loadlayout.OnLoadListener;
+import com.zhongzi.taomanjia.view.widget.loadlayout.State;
 import com.zhongzi.taomanjia.view.widget.recyclerview.lib.OnRefreshListener;
 import com.zhongzi.taomanjia.view.widget.recyclerview.lib.SwipeToLoadLayout;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +42,7 @@ import butterknife.ButterKnife;
  * 我的地址
  */
 
-public class UserAddressActivity extends ToolbarBaseActivity implements View.OnClickListener, IAddressInfoView, OnRefreshListener,UserAddressAdapter.UserAddressEditorListener,UserAddressAdapter.UserAddressRemoveListener {
+public class UserAddressActivity extends ToolbarBaseActivity implements View.OnClickListener, IAddressInfoView, OnRefreshListener,OnLoadListener {
     @BindView(R.id.swipe_target)
     RecyclerView userAddressRecyclerview;
     @BindView(R.id.swipeToLoadLayout)
@@ -45,6 +53,7 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
     LinearLayoutManager layoutManager = null;
     private List<AddressInfoRes> mList=new ArrayList<>();
 //        if (mType == TYPE_LINEAR) {
+    private AddressInfoRes event;
 
     @Override
     protected void setContentLayout() {
@@ -62,7 +71,7 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
         swipeToLoadLayout.setOnRefreshListener(this);
 
         getTvToolbarRight().setOnClickListener(this);
-
+        getLoadLayout().setOnLoadListener(this);
     }
 
     @Override
@@ -72,23 +81,24 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
 
     @Override
     protected void initEvent() {
-
+        EventBusUtil.register(this);
     }
 
     @Override
     public void onClick(View v) {
         UiUtils.startActivity(this, BaseConstants.ADD_ADDRESS, BaseConstants.CHECK_LOGIN);
+        finish();
     }
 
     @Override
     public void success(List<AddressInfoRes> list) {
         mList.clear();
         mList.addAll(list);
+        getLoadLayout().setLayoutState(State.SUCCESS);
         swipeToLoadLayout.setRefreshing(false);
         mAdapter=new UserAddressAdapter(list,this);
         userAddressRecyclerview.setAdapter(mAdapter);
-        mAdapter.setRemoveListener(this);
-        mAdapter.setEditorListener(this);
+//        mAdapter.setListener(this);
     }
 
     @Override
@@ -98,18 +108,73 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
     }
 
     @Override
+    public void isDefault() {
+        swipeToLoadLayout.setRefreshing(true);
+    }
+
+    @Override
     public void onRefresh() {
         mPresenter.getAddressList(this, getLoadLayout());
     }
 
-    @Override
     public void remove(int position) {
 //        MaterialDialogUtils.showRemoveDialog("是否删除","是否删除",this);
         mPresenter.deleteUserAddressInfo(mList.get(position).getId(),this,getLoadLayout());
     }
 
-    @Override
+    /**
+     * 编辑
+     * @param position
+     */
     public void editor(int position) {
+        event=mList.get(position);
+        UiUtils.startActivity(this,BaseConstants.EDITOR_ADDRESS,BaseConstants.CHECK_LOGIN);
+        finish();
+    }
 
+    public void isDefault(int position) {
+        mPresenter.updateUserDefaultAddress(mList.get(position).getId(),this,getLoadLayout());
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(AddressEvent event){
+        switch (event.getType()){
+            case BaseConstants.ADDRESS_DEFAULT:
+                isDefault(event.getPosition());
+                break;
+            case BaseConstants.ADDRESS_EDITOR://编辑
+                editor(event.getPosition());
+                break;
+            case BaseConstants.ADDRESS_REMOVE:
+                MaterialDialogUtils.showRemoveDialog("是否删除","是否删除",this);
+                break;
+            case BaseConstants.DIALOG_REMOVE:
+                remove(event.getPosition());
+                break;
+            case BaseConstants.ADDRESS_ADD_TO_USER:
+                LogUtil.e("参数测试");
+                swipeToLoadLayout.setRefreshing(true);
+//                mPresenter.getAddressList(this, getLoadLayout());
+                break;
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (event==null)return;
+        EventBusUtil.postEvent(new AddressInfoEvent(event.getConsignee(),event.getProvince(),
+                event.getCity(),event.getDistrict(),event.getDetail(),event.getPhone(),event.getIsDefault(),event.getId()));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBusUtil.unregister(this);
+    }
+
+    @Override
+    public void onLoad() {
+        mPresenter.getAddressList(UserAddressActivity.this, getLoadLayout());
     }
 }

@@ -67,6 +67,7 @@
         <activity android:name=".view.activity.money.MoneyRuleActivity"/>
         <!--地址信息-->
         <activity android:name=".view.activity.address.AddAddressActivity"/>
+        <activity android:name=".view.activity.address.EditorAddressActivity"/>
         <!--地址信息-->
         <!--个人中心-->
 

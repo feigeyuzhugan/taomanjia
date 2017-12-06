@@ -8,6 +8,7 @@ import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
 import com.zhongzi.taomanjia.view.activity.SettingActivity;
 import com.zhongzi.taomanjia.view.activity.address.AddAddressActivity;
+import com.zhongzi.taomanjia.view.activity.address.EditorAddressActivity;
 import com.zhongzi.taomanjia.view.activity.bankcard.BindingBankcardActivity;
 import com.zhongzi.taomanjia.view.activity.login.LoginActivity;
 import com.zhongzi.taomanjia.view.activity.money.MoneyCashActivity;
@@ -148,6 +149,9 @@ public class UiUtils {
                 break;
             case BaseConstants.ADD_ADDRESS://新增地址
                 UiUtils.startActivity(activity, AddAddressActivity.class);
+                break;
+            case BaseConstants.EDITOR_ADDRESS://修改地址
+                UiUtils.startActivity(activity, EditorAddressActivity.class);
                 break;
         }
     }

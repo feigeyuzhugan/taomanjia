@@ -95,4 +95,13 @@ public interface ApiService {
     @POST(UrlConstants.DELETEUSERADDRESSINFO)
     Observable<HttpResult<String>> deleteUserAddressInfo(@Field("userid") String userId,@Field("id") String id);
 
+    //默认地址
+    @FormUrlEncoded
+    @POST(UrlConstants.UPDATEUSERDEFAULTADDRESS)
+    Observable<HttpResult<String>> updateUserDefaultAddress(@Field("userid") String userId,@Field("addressid") String addressid);
+    //修改
+    @FormUrlEncoded
+    @POST(UrlConstants.EDITUSERADDRESSINFO)
+    Observable<HttpResult<String>> editUserAddressInfo(@FieldMap Map<String ,String> flatmap);
+
 }

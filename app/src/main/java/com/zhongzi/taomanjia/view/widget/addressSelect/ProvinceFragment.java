@@ -38,8 +38,6 @@ public class ProvinceFragment implements AdapterView.OnItemClickListener {
     public ProvinceFragment(Context context, AddressCallBack callBack) {
         this.context = context;
         this.callBack = callBack;
-//        this.mSelectAddresList=selectAddresList;
-//        EventBusUtil.postEvent(new AddressEvent(1));
         initView();
     }
 
@@ -72,10 +70,8 @@ public class ProvinceFragment implements AdapterView.OnItemClickListener {
 
     class AddressAdapter extends BaseAdapter {
 
-//        private List<AddressProvinceRes> list;
 
         public AddressAdapter() {
-//            this.list = list;
         }
 
         @Override

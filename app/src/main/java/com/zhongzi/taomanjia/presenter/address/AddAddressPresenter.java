@@ -5,6 +5,7 @@ import android.content.Context;
 import com.zhongzi.taomanjia.model.AddressModel;
 import com.zhongzi.taomanjia.model.LoginModel;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfo;
+import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfoEvent;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressCityRes;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressDistrictRes;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressProvinceRes;
@@ -22,7 +23,7 @@ import java.util.Map;
 
 /**
  * Created by Administrator on 2017/12/1.
- * 地址
+ * 地址，新增，修改
  */
 
 public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
@@ -95,7 +96,8 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
      * 新增
      */
     public void addUserAddressInfo(Context c, AddressInfo info){
-        Map<String ,String> map=getMap(c,info);
+        Map<String ,String> map=getAddMap(c,info);
+        if (map==null) return;
         mAddressModel.addUserAddressInfo(map, new HttpObserver<String>() {
             @Override
             public void onNext(String title, String s) {
@@ -109,10 +111,32 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
         },mIView.getLifeSubject());
     }
 
-    private Map<String,String> getMap(Context c,AddressInfo info) {
+    /**
+     *  修改
+     * @param c
+     * @param info
+     */
+    public void editUserAddressInfo(Context c, AddressInfoEvent info){
+        Map<String ,String> map=getEditorMap(c,info);
+        if (map==null) return;
+        mAddressModel.editUserAddressInfo(map, new HttpObserver<String>() {
+            @Override
+            public void onNext(String title, String s) {
+                mIView.addSuccess(s);
+            }
+
+            @Override
+            public void onError(int errType, String errMessage) {
+                ToastUtil.show(errMessage);
+            }
+        },mIView.getLifeSubject());
+    }
+
+    private Map<String,String> getEditorMap(Context c,AddressInfoEvent info) {
         map.clear();
         try {
             map.put("userid",mLoginModel.getUserId(c));
+            map.put("id",info.getId());
             map.put("name",info.getName());
             map.put("province",info.getProvince());
             map.put("ctiy",info.getCtiy());
@@ -121,11 +145,33 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
             map.put("detail",info.getDetail());
             map.put("phone",info.getPhone());
             map.put("default",info.getFlag());
-
-
         }catch (NullException e){
             ToastUtil.show(e.getMessage());
+            return null;
         }
+        LogUtil.e("---------------");
         return map;
     }
+
+    private Map<String,String> getAddMap(Context c,AddressInfo info) {
+        map.clear();
+        try {
+            map.put("userid",mLoginModel.getUserId(c));
+//            map.put("id",info.getId());
+            map.put("name",info.getName());
+            map.put("province",info.getProvince());
+            map.put("ctiy",info.getCtiy());
+
+            map.put("district",info.getDistrict());
+            map.put("detail",info.getDetail());
+            map.put("phone",info.getPhone());
+            map.put("default",info.getFlag());
+        }catch (NullException e){
+            ToastUtil.show(e.getMessage());
+            return null;
+        }
+        LogUtil.e("---------------");
+        return map;
+    }
+
 }

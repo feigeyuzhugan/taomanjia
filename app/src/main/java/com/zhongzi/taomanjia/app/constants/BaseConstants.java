@@ -20,6 +20,7 @@ public interface BaseConstants {
     int ACTIVITY_ID=1;//用到activity跳转
     int NOT_ACTIVITYID=2;//不用到activity跳转
     boolean CHECK_LOGIN=false;//不需要判断是否登录
+    int NOT_DATA=3;//加载成功，但没有数据
     //跳转的
 
     /*对应的界面参数*/
@@ -55,6 +56,7 @@ public interface BaseConstants {
     int MONEY_RULE=1024;//养老，红包等的规则
 
     int ADD_ADDRESS=1025;//新增地址
+    int EDITOR_ADDRESS=1026;//新增地址
 
 
 
@@ -68,5 +70,12 @@ public interface BaseConstants {
     int REQUEST_PICTURE_CUT=3003;//裁剪
     //---------------------------event相关的参数
     int UPLOADPHOTOS=4001;//上传照片
+
+    //地址中用到的参数500X
+    int ADDRESS_DEFAULT=5000;//默认
+    int ADDRESS_EDITOR=5001;//编辑
+    int ADDRESS_REMOVE=5002;//删除
+    int DIALOG_REMOVE=5003;//dialog中的删除
+    int ADDRESS_ADD_TO_USER=5004;//从添加地址到地址列表
 
 }

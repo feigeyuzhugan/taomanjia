@@ -267,7 +267,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 break;
             case BaseConstants.REQUEST_PICTURE_CUT://REQUEST_PICTURE_CUT
                 if (resultCode==RESULT_OK){
-                    EventBusUtil.postEvent(new ToUserCenterEvent(BaseConstants.NOT_ACTIVITYID,imageUriStr,BaseConstants.UPLOADPHOTOS));
+                    EventBusUtil.postEvent(new ToUserCenterEvent(BaseConstants.UPLOADPHOTOS,imageUriStr,BaseConstants.UPLOADPHOTOS));
                 }
                 break;
             case BaseConstants.REQUEST_PICK_IMAGE://选择图库

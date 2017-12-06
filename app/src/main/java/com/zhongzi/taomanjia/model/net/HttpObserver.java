@@ -2,6 +2,7 @@ package com.zhongzi.taomanjia.model.net;
 
 import android.util.Log;
 
+import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.model.entity.res.base.HttpResult;
 import com.zhongzi.taomanjia.utils.ToastUtil;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
@@ -58,11 +59,12 @@ public abstract class HttpObserver<T> implements Observer<HttpResult<T>> {
     }
     private void check(HttpResult<T> httpResult) {
         if (httpResult.isCode()){
-            LogUtil.e("HttpResult正确测试"+httpResult.getInfo().toString());
+//            LogUtil.e("HttpResult正确测试"+httpResult.getInfo().toString());
             onNext(httpResult.getMessage(), httpResult.getInfo());
         }else {
-            LogUtil.e("HttpResult正确测试",httpResult.getMessage());
+//            LogUtil.e("HttpResult正确测试",httpResult.getMessage());
             ToastUtil.show(httpResult.getMessage());
+            onError(BaseConstants.NOT_DATA, httpResult.getMessage());
         }
     }
     //具体实现下面两个方法，便可从中得到更直接详细的信息

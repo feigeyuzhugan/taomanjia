@@ -2,13 +2,13 @@ package com.zhongzi.taomanjia.model.entity.eventbus.address;
 
 import com.zhongzi.taomanjia.utils.exception.NullException;
 
+import org.greenrobot.eventbus.Subscribe;
+
 /**
- * Created by Administrator on 2017/12/4.
- * 就是添加地址的头字段
+ * Created by Administrator on 2017/12/5.
  */
 
-public class AddressInfo {
-
+public class AddressInfoEvent {
     private String name;//姓名
     private String province;//省ID
     private String ctiy;//市id
@@ -17,9 +17,9 @@ public class AddressInfo {
     private String detail;//详细地址
     private String phone;//手机号
     private String flag;//默认
+    private String id;//地址id
 
-
-    public AddressInfo(String name, String province, String ctiy, String district, String detail, String phone, String flag) {
+    public AddressInfoEvent(String name, String province, String ctiy, String district, String detail, String phone, String flag, String id) {
         this.name = name;
         this.province = province;
         this.ctiy = ctiy;
@@ -27,7 +27,40 @@ public class AddressInfo {
         this.detail = detail;
         this.phone = phone;
         this.flag = flag;
+        this.id = id;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+   /*
+    public AddressInfoEvent(String name, String province, String ctiy, String district, String detail, String phone, String flag) {
+        this.name = name;
+        this.province = province;
+        this.ctiy = ctiy;
+        this.district = district;
+        this.detail = detail;
+        this.phone = phone;
+        this.flag = flag;
+    }*/
+
+//    private String address;//省市区信息
+
+
+/*    public AddressInfoEvent(String name, String province, String ctiy, String district, String detail, String phone, String flag) {
+        this.name = name;
+        this.province = province;
+        this.ctiy = ctiy;
+        this.district = district;
+        this.detail = detail;
+        this.phone = phone;
+        this.flag = flag;
+    }*/
 
     public String getName() {
         if (name.isEmpty()){

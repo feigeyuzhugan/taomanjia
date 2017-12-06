@@ -2,6 +2,7 @@ package com.zhongzi.taomanjia.model.net;
 
 import android.util.Log;
 
+import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.model.entity.res.base.HttpArrayResult;
 import com.zhongzi.taomanjia.utils.ToastUtil;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
@@ -52,7 +53,7 @@ public abstract class HttpArrayObserver<T> implements Observer<HttpArrayResult<T
         //...
         check(httpResult);
         Log.e( "HttpArrayObserver: ----", httpResult.getMessage());
-        Log.e( "HttpArrayObserver: ----", httpResult.getInfo().get(0).toString());
+        Log.e( "HttpArrayObserver: ----", httpResult.getInfo().toString());
         //如果没失效，则正常回调
 
     }
@@ -62,6 +63,7 @@ public abstract class HttpArrayObserver<T> implements Observer<HttpArrayResult<T
             onNext(httpResult.getMessage(), httpResult.getInfo());
         }else {
             ToastUtil.show(httpResult.getMessage());
+            onError(BaseConstants.NOT_DATA,httpResult.getMessage());
         }
     }
 

@@ -1,18 +1,17 @@
 package com.zhongzi.taomanjia.view.activity.address;
 
-import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressEvent;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfo;
+import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfoEvent;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressCityRes;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressDistrictRes;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressProvinceRes;
@@ -27,19 +26,21 @@ import com.zhongzi.taomanjia.view.widget.addressSelect.SelectAddresFinish;
 import com.zhongzi.taomanjia.view.widget.addressSelect.SelectAddresList;
 import com.zhongzi.taomanjia.view.widget.addressSelect.SelectAddressPop;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by Administrator on 2017/12/1.
- * 新增地址信息
+ * Created by Administrator on 2017/12/5.
+ * 修改地址
  */
 
-public class AddAddressActivity extends ToolbarBaseActivity implements SelectAddresFinish,IAddAddressView,SelectAddresList {
-
-
+public class EditorAddressActivity extends ToolbarBaseActivity implements SelectAddresFinish,IAddAddressView,SelectAddresList {
     @BindView(R.id.address_add_username)
     EditText addressAddUsername;
     @BindView(R.id.address_add_userphone)
@@ -60,8 +61,9 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
     private AddressProvinceRes mAddressProvinceRes;//省
     private AddressCityRes mAddressCityRes;//市
     private AddressDistrictRes mAddressDistrictRes;//区
-    private AddressInfo info;//
+    private AddressInfoEvent info;//
 
+    private String id;
     private String name;
     private String province;
     private String ctiy;
@@ -71,7 +73,9 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
     private String phone;
     private String flag="0";
     int i=0;
-
+    private List<AddressProvinceRes> mProvinceResList=new ArrayList<>();
+    private List<AddressCityRes> mCityResList=new ArrayList<>();
+    private List<AddressDistrictRes> mDistrictResList=new ArrayList<>();
     @Override
     protected void setContentLayout() {
         setContentView(R.layout.activity_address_add);
@@ -84,7 +88,6 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
         mAddressProvinceRes=new AddressProvinceRes();
         mAddressCityRes=new AddressCityRes();
         mAddressDistrictRes=new AddressDistrictRes();
-
     }
 
     @Override
@@ -94,7 +97,7 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
 
     @Override
     protected void initEvent() {
-
+        EventBusUtil.register(this);
     }
 
 
@@ -118,8 +121,8 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
             case R.id.address_add_ok:
 //                mPresenter.addUserAddressInfo(this);
                 setInitView();
-                info=new AddressInfo(name,province, ctiy,district,detail,phone,flag);
-                mPresenter.addUserAddressInfo(this,info);
+                info=new AddressInfoEvent(name,province, ctiy,district,detail,phone,flag,id);
+                mPresenter.editUserAddressInfo(this,info);
                 break;
         }
     }
@@ -162,17 +165,23 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
     @Override
     public void allProvince(List<AddressProvinceRes> list) {
 //        LogUtil.e("-----------------");
+        mProvinceResList.clear();
+        mProvinceResList.addAll(list);
         dialog.setProvinceList(list);
     }
 
     @Override
     public void allCity(List<AddressCityRes> list) {
         LogUtil.e(list.get(0).toString());
+        mCityResList.clear();
+        mCityResList.addAll(list);
         dialog.setCityList(list);
     }
 
     @Override
     public void allDistrict(List<AddressDistrictRes> list) {
+        mDistrictResList.clear();
+        mDistrictResList.addAll(list);
         dialog.setDistrictsList(list);
     }
 
@@ -180,7 +189,7 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
     public void addSuccess(String mes) {
         ToastUtil.show(mes);
 //        finish();
-        UiUtils.startActivity(this,BaseConstants.MY_ADDRESS,BaseConstants.CHECK_LOGIN);
+        UiUtils.startActivity(this, BaseConstants.MY_ADDRESS,BaseConstants.CHECK_LOGIN);
         finish();
 
     }
@@ -191,10 +200,11 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
      */
     private void setInitView() {
         name=addressAddUsername.getText().toString().trim();
-        province=mAddressProvinceRes.getProvinceID();
-
-        ctiy=mAddressCityRes.getCityID();
-        district=mAddressDistrictRes.getDistrictID();
+        if (province==null){
+            province=mAddressProvinceRes.getProvinceID();
+            ctiy=mAddressCityRes.getCityID();
+            district=mAddressDistrictRes.getDistrictID();
+        }
         detail=addressAddDetailsAddress.getText().toString().trim();
         phone=addressAddUserphone.getText().toString().trim();
 //        flag=i+"";
@@ -217,4 +227,41 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
         super.onStop();
         EventBusUtil.postEvent(new AddressEvent(BaseConstants.ADDRESS_ADD_TO_USER));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBusUtil.unregister(this);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(AddressInfoEvent event){
+        setAddressInfoView(event);
+    }
+
+    /**
+     * 设置传递过来的数据
+     * @param event
+     */
+    private void setAddressInfoView(AddressInfoEvent event) {
+        addressAddUsername.setText(event.getName());
+        if (event.getFlag().equals("0")){
+            addressAddDefault.setImageDrawable(getResourceDrawable(R.drawable.address_default_off));
+        }else {
+            addressAddDefault.setImageDrawable(getResourceDrawable(R.drawable.address_default_on));
+
+        }
+        flag=event.getFlag();
+        addressAddUserphone.setText(event.getPhone());
+        addressAddDetailsAddress.setText(event.getDetail());
+        province=event.getProvince();
+        ctiy=event.getCtiy();
+        district=event.getDistrict();
+        id=event.getId();
+//        mPresenter.allProvince();
+//        mPresenter.allCity(event.getProvince());
+//        mPresenter.allDistrict(event.getCtiy());
+//        String address=m
+    }
+
+
 }

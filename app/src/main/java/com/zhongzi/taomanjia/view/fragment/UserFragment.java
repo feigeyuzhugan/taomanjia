@@ -49,6 +49,7 @@ import com.zhongzi.taomanjia.view.activity.user.UserSpendingActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserSystemActivity;
 import com.zhongzi.taomanjia.view.adapter.UserCenterAdapter;
 import com.zhongzi.taomanjia.view.fragment.base.BaseFragment;
+import com.zhongzi.taomanjia.view.widget.loadlayout.OnLoadListener;
 import com.zhongzi.taomanjia.view.widget.loadlayout.State;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -67,7 +68,7 @@ import butterknife.Unbinder;
  * Created by Administrator on 2017/6/23.
  */
 
-public class UserFragment extends BaseFragment implements IUserView, View.OnClickListener {
+public class UserFragment extends BaseFragment implements IUserView, View.OnClickListener,OnLoadListener {
 
     @BindView(R.id.user_pending_payment)
     TextView userPendingPayment;
@@ -146,6 +147,7 @@ public class UserFragment extends BaseFragment implements IUserView, View.OnClic
                 fail=true;
             }
         });
+//        getLoadLayout().setOnLoadListener(this);
         setRecycleview();
     }
 
@@ -326,5 +328,12 @@ public class UserFragment extends BaseFragment implements IUserView, View.OnClic
     public void onDestroy() {
         super.onDestroy();
         EventBusUtil.unregister(this);
+    }
+
+
+
+    @Override
+    public void onLoad() {
+        mUserPrestener.getUserInfo(mActivity);
     }
 }

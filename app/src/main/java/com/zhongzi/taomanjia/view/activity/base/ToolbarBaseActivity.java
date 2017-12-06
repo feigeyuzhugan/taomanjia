@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.view.widget.loadlayout.LoadLayout;
+import com.zhongzi.taomanjia.view.widget.loadlayout.OnLoadListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +26,7 @@ import butterknife.ButterKnife;
  * <p>
  * http://www.jianshu.com/p/3d9ee98a9570
  */
-public abstract class ToolbarBaseActivity extends BaseActivity {
+public abstract class ToolbarBaseActivity extends BaseActivity{
 
     LoadLayout mLoadLayout;//加载布局，可以显示各种状态的布局, 如加载中，加载成功, 加载失败, 无数据
 
@@ -73,7 +74,6 @@ public abstract class ToolbarBaseActivity extends BaseActivity {
 
     public void init() {
         ButterKnife.bind(this);//butterknife绑定
-
         mToolbar.setTitle("");//必须再setSupportActionBar之前将标题置为空字符串，否则具体页面设置标题会无效
         this.setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -132,5 +132,4 @@ public abstract class ToolbarBaseActivity extends BaseActivity {
             mLoadLayout.closeAnim();
         }
     }
-
 }

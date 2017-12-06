@@ -84,8 +84,38 @@ public class AddressModel {
         RetrofitUtil.composeToSubscribe(observable, observer, lifecycleSubject);
     }
 
+    /**
+     * 删除
+     * @param userid
+     * @param id
+     * @param observer
+     * @param lifecycleSubject
+     */
     public void deleteUserAddressInfo(String userid,String id, HttpObserver<String> observer, PublishSubject<LifeCycleEvent> lifecycleSubject) {
         Observable observable = RetrofitUtil.getApiService().deleteUserAddressInfo(userid,id);
+        RetrofitUtil.composeToSubscribe(observable, observer, lifecycleSubject);
+    }
+
+    /**
+     * 默认
+     * @param userid
+     * @param addressid
+     * @param observer
+     * @param lifecycleSubject
+     */
+    public void updateUserDefaultAddress(String userid,String addressid, HttpObserver<String> observer, PublishSubject<LifeCycleEvent> lifecycleSubject) {
+        Observable observable = RetrofitUtil.getApiService().updateUserDefaultAddress(userid,addressid);
+        RetrofitUtil.composeToSubscribe(observable, observer, lifecycleSubject);
+    }
+
+    /**
+     * 修改地址
+     * @param map
+     * @param observer
+     * @param lifecycleSubject
+     */
+    public void editUserAddressInfo(Map<String,String> map, HttpObserver<String> observer, PublishSubject<LifeCycleEvent> lifecycleSubject) {
+        Observable observable = RetrofitUtil.getApiService().editUserAddressInfo(map);
         RetrofitUtil.composeToSubscribe(observable, observer, lifecycleSubject);
     }
 

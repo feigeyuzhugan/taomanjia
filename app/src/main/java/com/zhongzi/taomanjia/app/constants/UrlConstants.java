@@ -37,7 +37,7 @@ public interface UrlConstants {
     //获取用户地址列表信息
     String GETUSERADDRESSLISTINFO="getUserAddressListInfo";
     //修改用户默认地址信息
-    String updateUserDefaultAddress="updateUserDefaultAddress";
+    String UPDATEUSERDEFAULTADDRESS="updateUserDefaultAddress";
     //删除用户地址信息
     String DELETEUSERADDRESSINFO="deleteUserAddressInfo";
     //获取全部省信息
@@ -47,5 +47,6 @@ public interface UrlConstants {
     //根据城市ID 获取全部地区信息
     String GETALLDISTRICTWITHCITYID="getAllDistrictWithCityId";
 
+    //商品分类名
 
 }

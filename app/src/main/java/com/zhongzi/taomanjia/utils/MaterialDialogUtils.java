@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.app.constants.BaseConstants;
+import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressEvent;
 import com.zhongzi.taomanjia.utils.camera.CameraUtils;
 import com.zhongzi.taomanjia.utils.log.LogUtil;
 import com.zhongzi.taomanjia.view.activity.MainActivity;
@@ -137,7 +138,7 @@ public class MaterialDialogUtils {
         materialDialog.setPositiveButton("确认", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                EventBusUtil.postEvent(new AddressEvent(BaseConstants.DIALOG_REMOVE));
                 materialDialog.dismiss();
             }
         });
