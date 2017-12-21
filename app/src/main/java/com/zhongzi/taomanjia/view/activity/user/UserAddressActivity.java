@@ -1,17 +1,12 @@
 package com.zhongzi.taomanjia.view.activity.user;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressEvent;
-import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfo;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfoEvent;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressInfoRes;
 import com.zhongzi.taomanjia.presenter.address.AddressInfoPresenter;
@@ -35,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2017/11/29.
@@ -52,7 +46,6 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
 
     LinearLayoutManager layoutManager = null;
     private List<AddressInfoRes> mList=new ArrayList<>();
-//        if (mType == TYPE_LINEAR) {
     private AddressInfoRes event;
 
     @Override
@@ -65,11 +58,10 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
         mPresenter = new AddressInfoPresenter(this);
         setToolbarCenterTitle("我的地址");
         getTvToolbarRight().setText("添加");
+        swipeToLoadLayout.setOnRefreshListener(this);
         swipeToLoadLayout.setRefreshing(true);
         layoutManager = new LinearLayoutManager(this);
         userAddressRecyclerview.setLayoutManager(layoutManager);
-        swipeToLoadLayout.setOnRefreshListener(this);
-
         getTvToolbarRight().setOnClickListener(this);
         getLoadLayout().setOnLoadListener(this);
     }
@@ -86,7 +78,7 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        UiUtils.startActivity(this, BaseConstants.ADD_ADDRESS, BaseConstants.CHECK_LOGIN);
+        UiUtils.startActivity(this, BaseConstants.ADD_ADDRESS, BaseConstants.CHECK_NOT_LOGIN);
         finish();
     }
 
@@ -103,7 +95,6 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
 
     @Override
     public void deleteSuccess(String str) {
-        ToastUtil.show("删除成功");
         swipeToLoadLayout.setRefreshing(true);
     }
 
@@ -114,12 +105,11 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
 
     @Override
     public void onRefresh() {
-        mPresenter.getAddressList(this, getLoadLayout());
+        mPresenter.getAddressList( getLoadLayout());
     }
 
     public void remove(int position) {
-//        MaterialDialogUtils.showRemoveDialog("是否删除","是否删除",this);
-        mPresenter.deleteUserAddressInfo(mList.get(position).getId(),this,getLoadLayout());
+        mPresenter.deleteUserAddressInfo(mList.get(position).getId(),getLoadLayout());
     }
 
     /**
@@ -128,12 +118,12 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
      */
     public void editor(int position) {
         event=mList.get(position);
-        UiUtils.startActivity(this,BaseConstants.EDITOR_ADDRESS,BaseConstants.CHECK_LOGIN);
+        UiUtils.startActivity(this,BaseConstants.EDITOR_ADDRESS,BaseConstants.CHECK_NOT_LOGIN);
         finish();
     }
 
     public void isDefault(int position) {
-        mPresenter.updateUserDefaultAddress(mList.get(position).getId(),this,getLoadLayout());
+        mPresenter.updateUserDefaultAddress(mList.get(position).getId(),getLoadLayout());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -152,9 +142,7 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
                 remove(event.getPosition());
                 break;
             case BaseConstants.ADDRESS_ADD_TO_USER:
-                LogUtil.e("参数测试");
                 swipeToLoadLayout.setRefreshing(true);
-//                mPresenter.getAddressList(this, getLoadLayout());
                 break;
         }
     }
@@ -175,6 +163,6 @@ public class UserAddressActivity extends ToolbarBaseActivity implements View.OnC
 
     @Override
     public void onLoad() {
-        mPresenter.getAddressList(UserAddressActivity.this, getLoadLayout());
+        mPresenter.getAddressList( getLoadLayout());
     }
 }

@@ -37,7 +37,6 @@ public class RegisterPresenter extends BasePresenter<IRegView> {
      * @param phoneNum
      */
     public void postPhoneNum(String phoneNum){
-//        LogUtil.e(phoneNum);
         if (!StringUtils.isMobileNO(phoneNum)){
             ToastUtil.show("手机号格式不正确");
             return;
@@ -59,8 +58,6 @@ public class RegisterPresenter extends BasePresenter<IRegView> {
      * @param code
      */
     public void checkCode(String code){
-//        LogUtil.e("aa",mRegPhoneNumCheckRes.getCode());
-//        LogUtil.e(code);
         if (mRegPhoneNumCheckRes==null){
             ToastUtil.show("请输入手机号");
             return;

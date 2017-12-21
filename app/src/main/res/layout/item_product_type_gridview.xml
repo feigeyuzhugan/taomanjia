@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="7dp"
+    android:layout_margin="@dimen/margin_1dp"
+    app:cardElevation="@dimen/padding_5dp"
+    app:contentPadding="@dimen/padding_5dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/product_item_grid_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:actualImageScaleType="fitXY"
+            app:failureImage="@drawable/default_img"/>
+        <TextView
+            android:id="@+id/product_item_grid_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="干锅"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

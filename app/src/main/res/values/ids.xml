@@ -3,4 +3,12 @@
     <item name="swipe_target" type="id" />
     <item name="swipe_refresh_header" type="id" />
     <item name="swipe_load_more_footer" type="id" />
+
+    <item name="banner_indicatorId" type="id" />
+    <!--封装的adapter-->
+    <item name="baseQuickAdapter_viewholder_support" type="id"/>
+    <item name="baseQuickAdapter_swiping_support" type="id"/>
+    <item name="baseQuickAdapter_dragging_support" type="id"/>
+    <item name="baseQuickAdapter_databinding_support" type="id"/>
+    <!--封装的adapter-->
 </resources>

@@ -1,16 +1,11 @@
 package com.zhongzi.taomanjia.model;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.zhongzi.taomanjia.app.constants.BaseConstants;
 import com.zhongzi.taomanjia.model.entity.res.LoginRes;
-import com.zhongzi.taomanjia.model.entity.res.RegUserRes;
 import com.zhongzi.taomanjia.model.net.HttpObserver;
 import com.zhongzi.taomanjia.model.net.LifeCycleEvent;
 import com.zhongzi.taomanjia.model.net.RetrofitUtil;
-import com.zhongzi.taomanjia.utils.PreferenceUtil;
-import com.zhongzi.taomanjia.utils.exception.NullException;
 
 import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
@@ -24,7 +19,7 @@ public class LoginModel {
     public static LoginModel getInstance() {
         return LoginModel.SingletonHolder.instance;
     }
-    private SharedPreferences sp=null;
+//    private SharedPreferences sp=null;
     private static class SingletonHolder {
         private static final LoginModel instance = new LoginModel();
     }
@@ -44,7 +39,7 @@ public class LoginModel {
         RetrofitUtil.composeToSubscribe(observable,observer,lifecycleSubject);
     }
 
-    public void saveLoginInfo(Context context,LoginRes loginRes){
+/*    public void saveLoginInfo(Context context,LoginRes loginRes){
         sp= PreferenceUtil.getPreference(context, BaseConstants.APP_LOGIN_USER,Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor=sp.edit();
         mEditor.putString("id",loginRes.getId());
@@ -53,11 +48,11 @@ public class LoginModel {
         mEditor.commit();
     }
 
-    /**
+    *//**
      * 获取id
      * @param context
      * @return
-     */
+     *//*
     public String getUserId(Context context){
         sp= PreferenceUtil.getPreference(context, BaseConstants.APP_LOGIN_USER,Context.MODE_PRIVATE);
         String id= sp.getString("id",null);
@@ -67,11 +62,11 @@ public class LoginModel {
         return id;
     }
 
-    /**
+    *//**
      * 获取用户名
      * @param context
      * @return
-     */
+     *//*
     public String getUserName(Context context){
         sp= PreferenceUtil.getPreference(context, BaseConstants.APP_LOGIN_USER,Context.MODE_PRIVATE);
         String userName= sp.getString("userName",null);
@@ -81,11 +76,11 @@ public class LoginModel {
         return userName;
     }
 
-    /**
+    *//**
      * 获取手机号
      * @param context
      * @return
-     */
+     *//*
     public String getPhoneNum(Context context){
         sp= PreferenceUtil.getPreference(context, BaseConstants.APP_LOGIN_USER,Context.MODE_PRIVATE);
         String phone= sp.getString("phone",null);
@@ -95,10 +90,10 @@ public class LoginModel {
         return phone;
     }
 
-    /**
+    *//**
      * 清空
      * @param context
-     */
+     *//*
     public void clearUser(Context context){
         sp= PreferenceUtil.getPreference(context, BaseConstants.APP_LOGIN_USER,Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor=sp.edit();
@@ -106,7 +101,7 @@ public class LoginModel {
         mEditor.putString("userName",null);
         mEditor.putString("phone",null);
         mEditor.commit();
-    }
+    }*/
 
 
 }

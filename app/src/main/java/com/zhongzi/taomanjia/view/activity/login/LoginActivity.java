@@ -71,7 +71,7 @@ public class LoginActivity extends ToolbarBaseActivity implements ILoginView{
             case R.id.login_commit:
                 username=loginName.getText().toString().trim();
                 pwd=loginPwd.getText().toString().trim();
-                mLoginPrestener.postLogin(this,username,pwd);
+                mLoginPrestener.postLogin(username,pwd);
                 break;
             case R.id.login_reg:
                 UiUtils.startActivity(this,RegisterActivity.class);
@@ -85,7 +85,7 @@ public class LoginActivity extends ToolbarBaseActivity implements ILoginView{
     @Override
     public void success() {
 //        LogUtil.e("-------登录成功----");
-        mLoginPrestener.loge(this);
+        mLoginPrestener.loge();
         finish();
     }
 

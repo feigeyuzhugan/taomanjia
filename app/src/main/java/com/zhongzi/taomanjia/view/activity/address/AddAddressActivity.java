@@ -119,7 +119,7 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
 //                mPresenter.addUserAddressInfo(this);
                 setInitView();
                 info=new AddressInfo(name,province, ctiy,district,detail,phone,flag);
-                mPresenter.addUserAddressInfo(this,info);
+                mPresenter.addUserAddressInfo(info);
                 break;
         }
     }
@@ -180,7 +180,7 @@ public class AddAddressActivity extends ToolbarBaseActivity implements SelectAdd
     public void addSuccess(String mes) {
         ToastUtil.show(mes);
 //        finish();
-        UiUtils.startActivity(this,BaseConstants.MY_ADDRESS,BaseConstants.CHECK_LOGIN);
+        UiUtils.startActivity(this,BaseConstants.MY_ADDRESS,BaseConstants.CHECK_NOT_LOGIN);
         finish();
 
     }

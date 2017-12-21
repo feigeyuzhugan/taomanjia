@@ -3,11 +3,13 @@ package com.zhongzi.taomanjia.presenter;
 import android.content.Context;
 
 import com.zhongzi.taomanjia.model.LoginModel;
+import com.zhongzi.taomanjia.model.entity.UserInfoSP;
 import com.zhongzi.taomanjia.presenter.base.BasePresenter;
 import com.zhongzi.taomanjia.presenter.iView.ILoginView;
 import com.zhongzi.taomanjia.presenter.iView.ISettingView;
 import com.zhongzi.taomanjia.utils.PreferenceUtil;
 import com.zhongzi.taomanjia.utils.exception.NullException;
+import com.zhongzi.taomanjia.utils.log.LogUtil;
 import com.zhongzi.taomanjia.view.widget.MaterialDialog;
 
 /**
@@ -16,30 +18,27 @@ import com.zhongzi.taomanjia.view.widget.MaterialDialog;
  */
 
 public class SettingPresenter extends BasePresenter<ISettingView>{
-    private LoginModel mLoginModel;//登录的模块
-
 
     public SettingPresenter(ISettingView iBaseView){
         super(iBaseView);
-        mLoginModel=LoginModel.getInstance();
     }
 
     /**
      * 要弹出对话框
-     * @param context
      */
-    public void exit(Context context){
-        mLoginModel.clearUser(context);
+    public void exit(){
+        UserInfoSP.getInstance().clearUser();
         mIView.exit();
     }
 
     /**
      * 是否已经登录
      */
-    public void loginning(Context context){
+    public void loginning(){
         try {
-            mLoginModel.getUserId(context);
+            UserInfoSP.getInstance().getUserId();
         }catch (NullException e){
+            LogUtil.e(e.toString());
             mIView.hide();
         }
     }

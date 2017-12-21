@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.zhongzi.taomanjia.model.AddressModel;
 import com.zhongzi.taomanjia.model.LoginModel;
+import com.zhongzi.taomanjia.model.entity.UserInfoSP;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfo;
 import com.zhongzi.taomanjia.model.entity.eventbus.address.AddressInfoEvent;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressCityRes;
@@ -30,13 +31,13 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
 
     private static final String TAG = AddAddressPresenter.class.getSimpleName();
     private AddressModel mAddressModel;
-    private LoginModel mLoginModel;
+    private String userId;
 
     private Map<String ,String> map=new HashMap<>();
     public AddAddressPresenter(IAddAddressView iAddAddressView) {
         super(iAddAddressView);
         mAddressModel = AddressModel.getInstance();
-        mLoginModel=LoginModel.getInstance();
+        userId=UserInfoSP.getInstance().getUserId();
     }
 
     /**
@@ -95,8 +96,8 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
     /**
      * 新增
      */
-    public void addUserAddressInfo(Context c, AddressInfo info){
-        Map<String ,String> map=getAddMap(c,info);
+    public void addUserAddressInfo( AddressInfo info){
+        Map<String ,String> map=getAddMap(info);
         if (map==null) return;
         mAddressModel.addUserAddressInfo(map, new HttpObserver<String>() {
             @Override
@@ -113,11 +114,10 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
 
     /**
      *  修改
-     * @param c
      * @param info
      */
-    public void editUserAddressInfo(Context c, AddressInfoEvent info){
-        Map<String ,String> map=getEditorMap(c,info);
+    public void editUserAddressInfo( AddressInfoEvent info){
+        Map<String ,String> map=getEditorMap(info);
         if (map==null) return;
         mAddressModel.editUserAddressInfo(map, new HttpObserver<String>() {
             @Override
@@ -132,10 +132,10 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
         },mIView.getLifeSubject());
     }
 
-    private Map<String,String> getEditorMap(Context c,AddressInfoEvent info) {
+    private Map<String,String> getEditorMap(AddressInfoEvent info) {
         map.clear();
         try {
-            map.put("userid",mLoginModel.getUserId(c));
+            map.put("userid", userId);
             map.put("id",info.getId());
             map.put("name",info.getName());
             map.put("province",info.getProvince());
@@ -153,10 +153,10 @@ public class AddAddressPresenter extends BasePresenter<IAddAddressView> {
         return map;
     }
 
-    private Map<String,String> getAddMap(Context c,AddressInfo info) {
+    private Map<String,String> getAddMap(AddressInfo info) {
         map.clear();
         try {
-            map.put("userid",mLoginModel.getUserId(c));
+            map.put("userid", userId);
 //            map.put("id",info.getId());
             map.put("name",info.getName());
             map.put("province",info.getProvince());

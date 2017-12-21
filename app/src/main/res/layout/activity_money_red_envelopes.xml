@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <include android:id="@+id/red_envelope_incom"
+        layout="@layout/include_money_income"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/money_income_height"
+        android:layout_alignParentTop="true"/>
+    <TextView
+        android:id="@+id/red_envelopes_consumption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/red_envelope_incom"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#F0EFF5"
+        android:padding="15dp"
+        android:text="当前累计消费金额  0.0" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/red_envelopes_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/red_envelopes_consumption"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#F0EFF5"
+        android:padding="15dp"
+        android:text="可提现的金额  0.0" />
+
+    <TextView
+        android:id="@+id/red_envelopes_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/red_envelopes_money"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#F0EFF5"
+        android:padding="15dp"
+        android:text="我的红包" />
+
+    <TextView
+        android:id="@+id/red_envelopes_note"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="截至目前您没有可获得的红包"
+        android:visibility="gone" />
+
+
+    <include android:id="@+id/red_envelope_bottom"
+        layout="@layout/include_money_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/reg_default"
+        android:layout_alignParentBottom="true"/>
+    <ListView
+        android:id="@+id/red_envelopes_list"
+        android:layout_below="@id/red_envelopes_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/red_envelope_bottom"/>
+</RelativeLayout>

@@ -72,6 +72,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     //-----照相
     private Uri imageUri;//原图保存地址
     private Uri imageUriStr;//传递给个人中心
+//    private Uri
     //-----照相
    private void addMenuItem(){
        bottomNavigationView.setMode(BottomNavigationBar.MODE_FIXED)
@@ -199,7 +200,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     //user界面跳转转某个界面
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void goActivty(UserCenterToEvent event){
+    public void onEvent(UserCenterToEvent event){
         switch (event.getType()){
             case BaseConstants.PERMISSION_CAMERA://照相权限
 //                ToastUtil.show("照相权限");
@@ -215,7 +216,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 //        PermissionUtil.requestPerssions(this, BaseConstants.PERMISSION_CAMERA, Manifest.permission.CAMERA,  Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
        boolean has= PermissionUtil.getCameraPermissions(this, BaseConstants.PERMISSION_CAMERA);
         if (has){
-            ToastUtil.show("有.....");
+//            ToastUtil.show("有.....");
             callPhone();
         }
     }
@@ -225,18 +226,19 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
      */
     private void callPhone() {
         imageUri=FileStorageUtils.createImageUri(this);
+        imageUriStr=FileStorageUtils.createCropUri(this);
         MaterialDialogUtils.showCallPhoneDialog(imageUri,this);
     }
 
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms, boolean isAllGranted) {
-        for (String str:perms){
-            LogUtil.e("授权"+str);
-        }
+//        for (String str:perms){
+//            LogUtil.e("授权"+str);
+//        }
         if (requestCode==BaseConstants.PERMISSION_CAMERA){
             if (perms.get(0).equals("android.permission.CAMERA")){
-                ToastUtil.show("弹出....");
+//                ToastUtil.show("弹出....");
                 callPhone();
             }
         }
@@ -261,19 +263,20 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
             case BaseConstants.REQUEST_SELECT_CAMERA://
 
                 if (resultCode==RESULT_OK){
-                    imageUriStr=imageUri;
-                    CameraUtils.cropPhoto(imageUri,this);
+//                    imageUriStr=imageUri;
+                    CameraUtils.cropPhoto(imageUri,this,imageUriStr);
                 }
                 break;
             case BaseConstants.REQUEST_PICTURE_CUT://REQUEST_PICTURE_CUT
                 if (resultCode==RESULT_OK){
+                    LogUtil.e(data);
                     EventBusUtil.postEvent(new ToUserCenterEvent(BaseConstants.UPLOADPHOTOS,imageUriStr,BaseConstants.UPLOADPHOTOS));
                 }
                 break;
             case BaseConstants.REQUEST_PICK_IMAGE://选择图库
                 if (resultCode==RESULT_OK) {
-                    imageUriStr = CameraUtils.selectPhoto(data, this);
-                    CameraUtils.cropPhoto(imageUriStr, this);
+                    imageUri = CameraUtils.selectPhoto(data, this);
+                    CameraUtils.cropPhoto(imageUri,this,imageUriStr);
                 }
                 break;
         }

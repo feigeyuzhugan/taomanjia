@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/linearlayout_divider_height_gray"
+    android:showDividers="middle"
+    android:orientation="vertical">
+    <com.zhongzi.taomanjia.view.widget.CustonProductTypeView
+        android:id="@+id/product_type_custom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/reg_default"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/product_type_list_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -71,7 +71,18 @@ public class FileStorageUtils {
         Uri imageUri=null;
         File file = new FileStorageUtils().createIconFile();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            imageUri = FileProvider.getUriForFile(activity, "com.zhongzi.taomanjia.fileprovider", file);//通过FileProvider创建一个content类型的Uri
+            imageUri = FileProvider.getUriForFile(activity, "com.zhongzi.taomanjia.fileprovider1", file);//通过FileProvider创建一个content类型的Uri
+        } else {
+            imageUri = Uri.fromFile(file);
+        }
+        return imageUri;
+    }
+
+    public static Uri createCropUri(Activity activity){
+        Uri imageUri=null;
+        File file = new FileStorageUtils().createIconFile();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            imageUri = FileProvider.getUriForFile(activity, "com.zhongzi.taomanjia.fileprovider1", file);//通过FileProvider创建一个content类型的Uri
         } else {
             imageUri = Uri.fromFile(file);
         }

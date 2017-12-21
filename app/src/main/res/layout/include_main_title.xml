@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/reg_default"
+    android:background="@color/white"
+    android:orientation="horizontal">
+    <!--main fragment的头部-->
+    <ImageView
+        android:id="@+id/include_main_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/padding_5dp"
+        android:src="@drawable/main_scan"/>
+    <ImageView
+        android:id="@+id/include_main_search"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/x30"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/padding_5dp"
+        android:layout_marginRight="@dimen/padding_5dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/drawable_main_search"/>
+
+    <TextView
+        android:id="@+id/include_main_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/padding_5dp"
+        android:background="@drawable/shape_text_btn"/>
+
+</LinearLayout>

@@ -3,9 +3,12 @@ package com.zhongzi.taomanjia.model.net;
 import com.zhongzi.taomanjia.app.constants.UrlConstants;
 import com.zhongzi.taomanjia.model.entity.res.BannerInfoRes;
 import com.zhongzi.taomanjia.model.entity.res.LoginRes;
+import com.zhongzi.taomanjia.model.entity.res.OrderInfoRes;
+import com.zhongzi.taomanjia.model.entity.res.ProductTypeRes;
 import com.zhongzi.taomanjia.model.entity.res.RegUserRes;
 import com.zhongzi.taomanjia.model.entity.res.UserInfoRes;
 import com.zhongzi.taomanjia.model.entity.res.UserProfileRes;
+import com.zhongzi.taomanjia.model.entity.res.UserSystemRes;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressCityRes;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressDistrictRes;
 import com.zhongzi.taomanjia.model.entity.res.address.AddressInfoRes;
@@ -13,6 +16,7 @@ import com.zhongzi.taomanjia.model.entity.res.address.AddressProvinceRes;
 import com.zhongzi.taomanjia.model.entity.res.base.HttpArrayResult;
 import com.zhongzi.taomanjia.model.entity.res.RegPhoneNumCheckRes;
 import com.zhongzi.taomanjia.model.entity.res.base.HttpResult;
+import com.zhongzi.taomanjia.model.entity.res.user.BankcardRes;
 
 import java.util.Map;
 
@@ -67,6 +71,11 @@ public interface ApiService {
     @POST(UrlConstants.GETUSERINFO)
     Observable<HttpResult<UserProfileRes>> getUserProfile(@Field("username") String username);
 
+    //系统消息
+    @FormUrlEncoded
+    @POST(UrlConstants.GETSYSTEMMESSAGE)
+    Observable<HttpArrayResult<UserSystemRes>> getSystemMessage(@Field("type") String type);
+
     //地址相关的
     //省
 //    @FormUrlEncoded
@@ -103,5 +112,46 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(UrlConstants.EDITUSERADDRESSINFO)
     Observable<HttpResult<String>> editUserAddressInfo(@FieldMap Map<String ,String> flatmap);
+    //分类
+    @POST(UrlConstants.GETPROUDCTCATEGROYINFO)
+    Observable<HttpArrayResult<ProductTypeRes>> getProudctCategroyInfo();
+
+    //添加银行卡
+    @FormUrlEncoded
+    @POST(UrlConstants.ADDMYBANKINFO)
+    Observable<HttpResult<String>> addMyBankInfo(@FieldMap Map<String ,String> flatmap);
+
+    //我的银行卡
+    @FormUrlEncoded
+    @POST(UrlConstants.GETMYBANKINFO)
+    Observable<HttpResult<BankcardRes>> getMyBankInfo(@Field("username") String username);
+
+    //订单信息
+    //全部订单
+    @FormUrlEncoded
+    @POST(UrlConstants.GETMYORDERLIST)
+    Observable<HttpArrayResult<OrderInfoRes>> getMyOrderList(@Field("userid") String userid);
+    //待付款订单
+    @FormUrlEncoded
+    @POST(UrlConstants.GETMYORDERLIST_1)
+    Observable<HttpArrayResult<OrderInfoRes>> getMyOrderList_1(@Field("userid") String userid);
+    //待发货订单
+    @FormUrlEncoded
+    @POST(UrlConstants.GETMYORDERLIST_2)
+    Observable<HttpArrayResult<OrderInfoRes>> getMyOrderList_2(@Field("userid") String userid);
+    //待收货订单
+    @FormUrlEncoded
+    @POST(UrlConstants.GETMYORDERLIST_3)
+    Observable<HttpArrayResult<OrderInfoRes>> getMyOrderList_3(@Field("userid") String userid);
+    //待评价订单
+    @FormUrlEncoded
+    @POST(UrlConstants.GETMYORDERLIST_4)
+    Observable<HttpArrayResult<OrderInfoRes>> getMyOrderList_4(@Field("userid") String userid);
+    //退货、退款订单
+    @FormUrlEncoded
+    @POST(UrlConstants.GETMYORDERLIST_5)
+    Observable<HttpArrayResult<OrderInfoRes>> getMyOrderList_5(@Field("userid") String userid);
+
+
 
 }

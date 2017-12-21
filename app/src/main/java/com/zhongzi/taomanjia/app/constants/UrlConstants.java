@@ -28,6 +28,8 @@ public interface UrlConstants {
     String GETUSERINFO="getUserInfo";
     //修改用户基本资料
     String UPDATEUSERINFO="updateUserInfo";
+    //系统消息getSystemMessage
+    String GETSYSTEMMESSAGE="getSystemMessage";
 
     //地址
     //新增地址
@@ -47,6 +49,31 @@ public interface UrlConstants {
     //根据城市ID 获取全部地区信息
     String GETALLDISTRICTWITHCITYID="getAllDistrictWithCityId";
 
+    //银行卡
+    //添加用户银行卡号信息
+    String ADDMYBANKINFO="addMyBankInfo";
+    //我的用户卡
+    String GETMYBANKINFO="getMyBankInfo";
+
+    //订单信息
+    //全部订单
+    String GETMYORDERLIST="getMyOrderList";
+
+    //待付款订单
+    String GETMYORDERLIST_1="getOrderStateList_1";
+    //待发货订单
+    String GETMYORDERLIST_2="getOrderStateList_2";
+    //待收货订单
+    String GETMYORDERLIST_3="getOrderStateList_3";
+    //待评价订单
+    String GETMYORDERLIST_4="getOrderStateList_5";
+    //退货、退款订单
+    String GETMYORDERLIST_5="getReturnOrderList";
+
+
     //商品分类名
+    String GETPROUDCTCATEGROYINFO="getProudctCategroyInfo";
+    //提交意见
+//    String getSystemMessage=
 
 }

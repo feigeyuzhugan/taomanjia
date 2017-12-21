@@ -36,7 +36,7 @@ public class BankcardFragmnet extends BaseFragment {
 
         Bundle args = new Bundle();
         args.putInt("key", key);
-        BankcardFragmnet  fragment = new BankcardFragmnet();
+        BankcardFragmnet fragment = new BankcardFragmnet();
         fragment.setArguments(args);
         return fragment;
     }

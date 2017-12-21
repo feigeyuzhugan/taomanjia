@@ -1,8 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/linearlayout_divider_height_gray"
+        android:dividerPadding="@dimen/padding_2dp"
+        android:orientation="vertical"
+        android:showDividers="middle|end">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/profile_username"
+            style="@style/textStyle_no_drawable"
+            android:text="账号：啊啊啊啊" />
+
+        <TextView
+            style="@style/textStyle_no_drawable"
+            android:text="账号类型：   个人用户" />
+
+        <TextView
+            android:id="@+id/profile_sex"
+            style="@style/textStyle_no_drawable"
+            android:text="性别：男" />
+
+        <TextView
+            android:id="@+id/profile_phone"
+            style="@style/textStyle_no_drawable"
+            android:text="手机号：111111111" />
+
+        <TextView
+            android:id="@+id/profile_email"
+            style="@style/textStyle_no_drawable"
+            android:text="邮箱：66663@qq.com" />
+
+        <TextView
+            android:id="@+id/profile_realname"
+            style="@style/textStyle_no_drawable"
+            android:text="真实姓名：李志洲" />
+
+        <TextView
+            style="@style/textStyle_no_drawable"
+            android:text="证件类型：中国身份证" />
+
+        <TextView
+            android:id="@+id/profile_idnumber"
+            style="@style/textStyle_no_drawable"
+            android:text="证件号：66666" />
+
+        <TextView
+            android:id="@+id/profile_referrer_name"
+            style="@style/textStyle_no_drawable"
+            android:text="分享人：125633" />
+
+    </LinearLayout>
+
+</ScrollView>

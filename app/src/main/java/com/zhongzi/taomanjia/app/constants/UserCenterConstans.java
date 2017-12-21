@@ -26,6 +26,7 @@ public class UserCenterConstans {
      * @return
      */
     public static List<UserCenterRes> getUserCenterList(){
+        list.clear();
         for (int i=0;i<texts.length;i++){
             list.add(new UserCenterRes(texts[i],images[i]));
         }

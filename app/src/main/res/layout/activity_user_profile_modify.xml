@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/linearlayout_divider_height_gray"
+        android:dividerPadding="@dimen/padding_2dp"
+        android:orientation="vertical"
+        android:showDividers="middle|end">
+
+        <EditText
+            android:id="@+id/profile_modify_username"
+            style="@style/textStyle_no_drawable"
+            android:hint="请填写登录密码" />
+
+        <TextView
+            android:id="@+id/profile_modify_sex"
+            style="@style/textStyle_no_drawable"
+            android:text="性别：男" />
+
+        <EditText
+            android:id="@+id/profile_modify_phone"
+            style="@style/textStyle_no_drawable"
+            android:hint="请填写手机号" />
+
+        <EditText
+            android:id="@+id/profile_modify_email"
+            style="@style/textStyle_no_drawable"
+            android:hint="邮箱：66663@qq.com" />
+
+        <EditText
+            android:id="@+id/profile_modify_name"
+            style="@style/textStyle_no_drawable"
+            android:hint="真实姓名：李志洲" />
+
+        <EditText
+            android:id="@+id/profile_modify_birthday"
+            style="@style/textStyle_no_drawable"
+            android:hint="生日" />
+
+        <EditText
+            android:id="@+id/profile_modify_idnumber"
+            style="@style/textStyle_no_drawable"
+            android:hint="证件号：66666" />
+
+
+    </LinearLayout>
+
+</ScrollView>

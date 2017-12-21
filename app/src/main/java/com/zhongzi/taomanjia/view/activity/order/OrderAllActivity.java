@@ -4,12 +4,10 @@ import com.zhongzi.taomanjia.R;
 import com.zhongzi.taomanjia.view.activity.base.ToolbarBaseActivity;
 
 /**
- * Created by Administrator on 2017/11/28.
- * 全部订单
+ * Created by Administrator on 2017/12/18.
  */
 
-public class OrderAllActivity extends ToolbarBaseActivity{
-
+public class OrderAllActivity extends ToolbarBaseActivity {
     @Override
     protected void setContentLayout() {
         setContentView(R.layout.activity_order_all);
@@ -18,6 +16,7 @@ public class OrderAllActivity extends ToolbarBaseActivity{
     @Override
     protected void initView() {
         setToolbarCenterTitle("全部订单");
+
     }
 
     @Override

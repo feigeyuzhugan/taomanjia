@@ -9,6 +9,7 @@ import com.zhongzi.taomanjia.presenter.iView.ISplashView;
 
 /**
  * Created by Administrator on 2017/11/15.
+ * 开启app的第一页
  */
 
 public class SplashPrestenter extends BasePresenter<ISplashView>{

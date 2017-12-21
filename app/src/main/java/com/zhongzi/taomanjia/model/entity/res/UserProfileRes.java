@@ -1,5 +1,7 @@
 package com.zhongzi.taomanjia.model.entity.res;
 
+import com.zhongzi.taomanjia.utils.log.LogUtil;
+
 /**
  * Created by Administrator on 2017/12/1.
  * 用户的数据信息
@@ -125,7 +127,17 @@ public class UserProfileRes {
     }
 
     public String getSex() {
-        return sex;
+        LogUtil.e(sex);
+        int tag=Integer.parseInt(sex);
+        if (tag==0){
+            return "女";
+        }else if (tag==1){
+            return "男";
+        }else if (tag==2){
+            return "保密";
+        }else {
+            return "其他";
+        }
     }
 
     public void setSex(String sex) {

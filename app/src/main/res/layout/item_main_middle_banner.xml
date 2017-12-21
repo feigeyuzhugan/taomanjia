@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.zhongzi.taomanjia.view.widget.autoscrollviewpager.BGABanner
+        android:id="@+id/item_main_middle_banner_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:banner_indicatorGravity="bottom"
+        app:banner_pointContainerBackground="@color/transparent"
+        app:banner_pageChangeDuration="3500"
+        app:banner_placeholderDrawable="@drawable/default_img"
+        app:banner_tipTextSize="12sp"
+        app:banner_viewAspectRatio="2.32"
+        app:banner_transitionEffect="defaultEffect" />
+</LinearLayout>

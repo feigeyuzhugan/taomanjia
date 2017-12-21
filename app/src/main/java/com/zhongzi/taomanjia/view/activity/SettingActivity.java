@@ -44,7 +44,7 @@ public class SettingActivity extends ToolbarBaseActivity implements ISettingView
     @Override
     protected void initView() {
         mSettingPresenter=new SettingPresenter(this);
-        mSettingPresenter.loginning(this);
+        mSettingPresenter.loginning();
     }
 
     @Override
@@ -60,15 +60,15 @@ public class SettingActivity extends ToolbarBaseActivity implements ISettingView
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.setting_about:
-                UiUtils.startActivity(this, BaseConstants.ABOUT_US,BaseConstants.CHECK_LOGIN);
+                UiUtils.startActivity(this, BaseConstants.ABOUT_US,BaseConstants.CHECK_NOT_LOGIN);
                 break;
             case R.id.setting_suggestion:
-                UiUtils.startActivity(this, BaseConstants.SUGGESTION,BaseConstants.CHECK_LOGIN);
+                UiUtils.startActivity(this, BaseConstants.SUGGESTION,BaseConstants.CHECK_NOT_LOGIN);
                 break;
             case R.id.setting_check:
                 break;
             case R.id.settint_exit:
-                mSettingPresenter.exit(this);
+                mSettingPresenter.exit();
                 break;
         }
     }

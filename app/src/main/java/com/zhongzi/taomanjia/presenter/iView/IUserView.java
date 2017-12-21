@@ -13,5 +13,6 @@ public interface IUserView extends IBaseView{
     void login();//登录了
     void uploadePhoto(String path);
 
-    void getUserInfo(UserInfoRes userInfoRes);
+    void getSuccessUserInfo(UserInfoRes userInfoRes);
+    void error();
 }

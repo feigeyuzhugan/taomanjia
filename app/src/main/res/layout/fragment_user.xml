@@ -85,7 +85,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/user_order_5" />
         </LinearLayout>
-        <com.zhongzi.taomanjia.view.widget.MyGridView
+        <com.zhongzi.taomanjia.view.widget.NoScrollGridView
             android:id="@+id/user_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

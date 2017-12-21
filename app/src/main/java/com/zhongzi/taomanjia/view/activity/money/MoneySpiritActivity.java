@@ -29,16 +29,14 @@ public class MoneySpiritActivity extends ToolbarBaseWhiteActivity implements Vie
 
     @Override
     protected void obtainData() {
-
     }
 
     @Override
     protected void initEvent() {
-
     }
     @Override
     public void onClick(View v) {
-        UiUtils.startActivity(this, BaseConstants.MONEY_RULE,BaseConstants.CHECK_LOGIN);
+        UiUtils.startActivity(this, BaseConstants.MONEY_RULE,BaseConstants.CHECK_NOT_LOGIN);
     }
 
     @Override

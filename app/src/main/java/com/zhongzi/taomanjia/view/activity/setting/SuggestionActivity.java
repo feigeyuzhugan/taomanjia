@@ -27,6 +27,5 @@ public class SuggestionActivity extends ToolbarBaseActivity{
 
     @Override
     protected void initEvent() {
-
     }
 }

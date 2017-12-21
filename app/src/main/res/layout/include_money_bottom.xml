@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/reg_default"
+    android:orientation="horizontal">
+
+    <com.zhongzi.taomanjia.view.widget.DrawableLeftButton
+        android:layout_width="@dimen/padding_0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textColor="@color/top_background"
+        android:background="@drawable/selector_money_bottom_record"
+        android:drawableLeft="@drawable/money_records_blue"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginRight="1dp"
+        android:text="记录"/>
+
+    <com.zhongzi.taomanjia.view.widget.DrawableLeftButton
+        android:layout_width="@dimen/padding_0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableLeft="@drawable/money_commit"
+        android:background="@drawable/selector_money_bottom_commit"
+        android:textColor="@color/white"
+        android:gravity="center_vertical"
+        android:drawablePadding="10dp"
+        android:text="提现"/>
+
+</LinearLayout>

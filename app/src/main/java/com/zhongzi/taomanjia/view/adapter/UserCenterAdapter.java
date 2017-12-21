@@ -1,6 +1,7 @@
 package com.zhongzi.taomanjia.view.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ public class UserCenterAdapter extends BaseAdapter {
     private List<UserCenterRes> mList;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
+    private Drawable mDrawable;
     public UserCenterAdapter(List<UserCenterRes> list, Context context){
         this.mList=list;
         this.mContext=context;
@@ -49,20 +51,24 @@ public class UserCenterAdapter extends BaseAdapter {
         if (convertView==null){
             viewHolder=new ViewHolder();
             convertView=mLayoutInflater.inflate(R.layout.item_usercenter_gridview,parent,false);
-            viewHolder.img= (ImageView) convertView.findViewById(R.id.item_user_img);
             viewHolder.tv= (TextView) convertView.findViewById(R.id.item_user_tv);
             convertView.setTag(viewHolder);
         }else {
             viewHolder= (ViewHolder) convertView.getTag();
         }
         UserCenterRes userCenterRes=mList.get(position);
-        viewHolder.img.setImageResource(userCenterRes.getId());
+        viewHolder.tv.setCompoundDrawables(null,getDrawable(userCenterRes.getId()),null,null);
         viewHolder.tv.setText(userCenterRes.getName());
         return convertView;
     }
 
     public static class ViewHolder {
-        ImageView img;
         TextView tv;
+    }
+
+    private Drawable getDrawable(int drawableId) {
+        mDrawable=mContext.getResources().getDrawable(drawableId);
+        mDrawable.setBounds(0,0,mDrawable.getIntrinsicWidth(),mDrawable.getIntrinsicHeight());
+        return mDrawable;
     }
 }

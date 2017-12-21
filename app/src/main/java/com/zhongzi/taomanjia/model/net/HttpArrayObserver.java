@@ -52,10 +52,9 @@ public abstract class HttpArrayObserver<T> implements Observer<HttpArrayResult<T
         //如果失效则直接跳转登录页面
         //...
         check(httpResult);
-        Log.e( "HttpArrayObserver: ----", httpResult.getMessage());
-        Log.e( "HttpArrayObserver: ----", httpResult.getInfo().toString());
+//        Log.e( "HttpArrayObserver: ----", httpResult.getMessage());
+//        Log.e( "HttpArrayObserver: ----", httpResult.getInfo().toString());
         //如果没失效，则正常回调
-
     }
 
     private void check(HttpArrayResult<T> httpResult) {

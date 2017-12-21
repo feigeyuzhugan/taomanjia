@@ -134,6 +134,16 @@
         <item name="android:windowIsFloating">true</item>
     </style>
     <!--地址选择-->
+    <!--八个按钮公共属性-->
+    <style name="main_8icon_btn">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_margin">@dimen/x1</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:gravity">center</item>
+    </style>
 
 
 

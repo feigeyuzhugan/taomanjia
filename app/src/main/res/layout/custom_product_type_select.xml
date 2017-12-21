@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/reg_default"
+    android:background="@color/white"
+    android:divider="@drawable/linearlayout_divider_width_gray"
+    android:dividerPadding="@dimen/padding_5dp"
+    android:orientation="horizontal"
+    android:showDividers="middle">
+
+    <RelativeLayout
+        android:id="@+id/custom_product_type_sales_rl"
+        android:layout_width="@dimen/padding_0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/custom_product_type_sales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="@dimen/padding_2dp"
+            android:drawableRight="@drawable/product_list_arrow4d"
+            android:text="销量" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/padding_0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/custom_product_type_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="@dimen/padding_2dp"
+            android:drawableRight="@drawable/product_list_arrow4"
+            android:text="价格" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/custom_product_type_newproduct_rl"
+        android:layout_width="@dimen/padding_0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/custom_product_type_newproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="@dimen/padding_2dp"
+            android:drawableRight="@drawable/product_list_arrow4"
+            android:text="新品" />
+    </RelativeLayout>
+
+</LinearLayout>

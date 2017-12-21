@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/linearlayout_divider_height_gray"
+    android:dividerPadding="@dimen/padding_2dp"
+    android:layout_marginTop="@dimen/x6"
+    android:layout_marginBottom="@dimen/x2"
+    android:background="@color/white"
+    android:showDividers="middle"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x2"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/padding_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/x2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/padding_4dp"
+                android:text="限量特惠" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_1"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_2"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/padding_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/x2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/padding_4dp"
+                android:text="新品首发" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_3"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_4"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x2"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/padding_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/x2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/padding_4dp"
+                android:text="量饭团" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_5"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_6"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/padding_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/x2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/padding_4dp"
+                android:text="营养保健" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_7"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/item_main_newproduct_img_8"
+                    android:layout_width="@dimen/padding_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/x2"
+                    app:placeholderImage="@drawable/default_img"
+                    app:viewAspectRatio="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -43,22 +43,22 @@ public class UserSpendingActivity extends ToolbarBaseActivity {
         switch (view.getId()) {
             case R.id.spending_redenvelopes:
                 ToastUtil.show("红包");
-                UiUtils.startActivity(this, BaseConstants.MONEY_RED_ENVELOPES,BaseConstants.CHECK_LOGIN);
+                UiUtils.startActivity(this, BaseConstants.MONEY_RED_ENVELOPES,BaseConstants.CHECK_NOT_LOGIN);
                 break;
             case R.id.spending_cash:
-                UiUtils.startActivity(this, BaseConstants.MONEY_CASH,BaseConstants.CHECK_LOGIN);
+                UiUtils.startActivity(this, BaseConstants.MONEY_CASH,BaseConstants.CHECK_NOT_LOGIN);
                 ToastUtil.show("现金");
                 break;
             case R.id.spending_pension:
-                UiUtils.startActivity(this, BaseConstants.MONEY_PENSION,BaseConstants.CHECK_LOGIN);
+                UiUtils.startActivity(this, BaseConstants.MONEY_PENSION,BaseConstants.CHECK_NOT_LOGIN);
                 ToastUtil.show("养老");
                 break;
             case R.id.spending_spirit:
-                UiUtils.startActivity(this, BaseConstants.MONEY_SPIRIT,BaseConstants.CHECK_LOGIN);
+                UiUtils.startActivity(this, BaseConstants.MONEY_SPIRIT,BaseConstants.CHECK_NOT_LOGIN);
                 ToastUtil.show("金元");
                 break;
             case R.id.spending_share:
-                UiUtils.startActivity(this, BaseConstants.MONEY_SHARED,BaseConstants.CHECK_LOGIN);
+                UiUtils.startActivity(this, BaseConstants.MONEY_SHARED,BaseConstants.CHECK_NOT_LOGIN);
                 ToastUtil.show("分享");
                 break;
         }

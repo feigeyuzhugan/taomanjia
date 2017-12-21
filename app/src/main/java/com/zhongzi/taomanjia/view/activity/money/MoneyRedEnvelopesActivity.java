@@ -40,7 +40,7 @@ public class MoneyRedEnvelopesActivity extends ToolbarBaseWhiteActivity implemen
 
     @Override
     public void onClick(View v) {
-        UiUtils.startActivity(this, BaseConstants.MONEY_RULE,BaseConstants.CHECK_LOGIN);
+        UiUtils.startActivity(this, BaseConstants.MONEY_RULE,BaseConstants.CHECK_NOT_LOGIN);
     }
 
     @Override

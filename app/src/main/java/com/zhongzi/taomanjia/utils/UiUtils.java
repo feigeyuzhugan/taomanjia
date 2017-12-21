@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.zhongzi.taomanjia.app.constants.BaseConstants;
-import com.zhongzi.taomanjia.utils.log.LogUtil;
+import com.zhongzi.taomanjia.model.entity.UserInfoSP;
+import com.zhongzi.taomanjia.utils.exception.NullException;
 import com.zhongzi.taomanjia.view.activity.SettingActivity;
 import com.zhongzi.taomanjia.view.activity.address.AddAddressActivity;
 import com.zhongzi.taomanjia.view.activity.address.EditorAddressActivity;
 import com.zhongzi.taomanjia.view.activity.bankcard.BindingBankcardActivity;
+import com.zhongzi.taomanjia.view.activity.detailshop.DetailShoppingActivity;
 import com.zhongzi.taomanjia.view.activity.login.LoginActivity;
 import com.zhongzi.taomanjia.view.activity.money.MoneyCashActivity;
 import com.zhongzi.taomanjia.view.activity.money.MoneyPensionActivity;
@@ -17,7 +19,9 @@ import com.zhongzi.taomanjia.view.activity.money.MoneyRedEnvelopesActivity;
 import com.zhongzi.taomanjia.view.activity.money.MoneyRuleActivity;
 import com.zhongzi.taomanjia.view.activity.money.MoneySharedActivity;
 import com.zhongzi.taomanjia.view.activity.money.MoneySpiritActivity;
+import com.zhongzi.taomanjia.view.activity.order.OrderActivity;
 import com.zhongzi.taomanjia.view.activity.order.OrderAllActivity;
+import com.zhongzi.taomanjia.view.activity.product.ProductTypeListActivity;
 import com.zhongzi.taomanjia.view.activity.setting.AboutUsActivity;
 import com.zhongzi.taomanjia.view.activity.setting.SuggestionActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserAddressActivity;
@@ -27,6 +31,7 @@ import com.zhongzi.taomanjia.view.activity.user.UserCollectionActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserContactActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserDownloadActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserProfileActivity;
+import com.zhongzi.taomanjia.view.activity.user.UserProfileModifyActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserSecuritycenterActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserSharedActivity;
 import com.zhongzi.taomanjia.view.activity.user.UserSpendingActivity;
@@ -83,7 +88,7 @@ public class UiUtils {
             case BaseConstants.LOGIN_ACTIVITY://登录
                 UiUtils.startActivity(activity, LoginActivity.class);
                 break;
-            case BaseConstants.TO_ALL_ORDERS:
+            case BaseConstants.TO_ALL_ORDERS://全部订单
                 UiUtils.startActivity(activity, OrderAllActivity.class);
                 break;
             case BaseConstants.MY_COLLECTION://收藏
@@ -105,7 +110,7 @@ public class UiUtils {
                 UiUtils.startActivity(activity, UserSecuritycenterActivity.class);
                 break;
             case BaseConstants.SHARE_THE_USER://分享用户
-                LogUtil.e("分享用户");
+//                LogUtil.e("分享用户");
                 UiUtils.startActivity(activity, UserSharedActivity.class);
                 break;
             case BaseConstants.MY_TWO_CODE://分享二维码
@@ -153,6 +158,18 @@ public class UiUtils {
             case BaseConstants.EDITOR_ADDRESS://修改地址
                 UiUtils.startActivity(activity, EditorAddressActivity.class);
                 break;
+            case BaseConstants.PRODUCT_TYPE_LIST://商品分类
+                UiUtils.startActivity(activity, ProductTypeListActivity.class);
+                break;
+            case BaseConstants.DETAIL_SHOPPING://商品详情
+                UiUtils.startActivity(activity, DetailShoppingActivity.class);
+                break;
+            case BaseConstants.USER_PROFILE_MODIFY://修改我的资料
+                UiUtils.startActivity(activity, UserProfileModifyActivity.class);
+                break;
+            case BaseConstants.ORDE_INFO://订单信息
+                UiUtils.startActivity(activity, OrderActivity.class);
+                break;
         }
     }
     /**
@@ -160,7 +177,11 @@ public class UiUtils {
      */
     private static int checkLogin(boolean isNotLogin,int type){
         if (isNotLogin){
-            return BaseConstants.LOGIN_ACTIVITY;
+            try {
+                UserInfoSP.getInstance().getUserId();
+            }catch (NullException e){
+                return BaseConstants.LOGIN_ACTIVITY;
+            }
         }
         return type;
     }

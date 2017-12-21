@@ -122,7 +122,7 @@ public class EditorAddressActivity extends ToolbarBaseActivity implements Select
 //                mPresenter.addUserAddressInfo(this);
                 setInitView();
                 info=new AddressInfoEvent(name,province, ctiy,district,detail,phone,flag,id);
-                mPresenter.editUserAddressInfo(this,info);
+                mPresenter.editUserAddressInfo(info);
                 break;
         }
     }
@@ -189,7 +189,7 @@ public class EditorAddressActivity extends ToolbarBaseActivity implements Select
     public void addSuccess(String mes) {
         ToastUtil.show(mes);
 //        finish();
-        UiUtils.startActivity(this, BaseConstants.MY_ADDRESS,BaseConstants.CHECK_LOGIN);
+        UiUtils.startActivity(this, BaseConstants.MY_ADDRESS,BaseConstants.CHECK_NOT_LOGIN);
         finish();
 
     }

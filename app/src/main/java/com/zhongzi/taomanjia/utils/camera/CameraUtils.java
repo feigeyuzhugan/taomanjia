@@ -48,10 +48,11 @@ public class CameraUtils {
     /**
      * 裁剪
      */
-    public static void cropPhoto(Uri imageUri, Activity activity) {
+    public static void cropPhoto(Uri imageUri, Activity activity,Uri fileUri) {
         try {
-//            File file = new FileStorageUtils().createCropFile();
-            LogUtil.e(imageUri);
+            File file = new FileStorageUtils().createCropFile();
+//            String filePath="file://"+file.getAbsolutePath();
+            LogUtil.e(imageUri+"--"+file.getAbsolutePath());
             Intent intent = new Intent("com.android.camera.action.CROP");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -65,7 +66,7 @@ public class CameraUtils {
             intent.putExtra("outputY", 360);
             intent.putExtra("return-data", false);
             intent.putExtra("noFaceDetection", true);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
             //广播刷新相册
 //            Intent intentBc = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
 //            intentBc.setData(imageUri);
@@ -83,7 +84,7 @@ public class CameraUtils {
 //        String path=null;
 
         if (Build.VERSION.SDK_INT >= 19) {
-            LogUtil.e("======图片选择");
+//            LogUtil.e("======图片选择");
             return handleImageOnKitKat(data,activity);
         } else {
             return handleImageBeforeKitKat(data,activity);
@@ -126,7 +127,7 @@ public class CameraUtils {
             File file=new File(imageUri.getPath());
             imagePath = Uri.fromFile(file);
         }
-        LogUtil.e("相片"+imagePath);
+//        LogUtil.e("相片"+imagePath);
         return imagePath;
     }
 

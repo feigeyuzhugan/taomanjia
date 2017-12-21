@@ -36,7 +36,8 @@
         <activity android:name=".view.activity.login.ForgetActivity" />
 
         <!--订单-->
-        <activity android:name=".view.activity.order.OrderAllActivity" />
+        <activity android:name=".view.activity.order.OrderActivity" />
+        <activity android:name=".view.activity.order.OrderAllActivity"/>
         <activity android:name=".view.activity.order.OrderReturnActivity" />
         <activity android:name=".view.activity.order.OrderDeliveredActivity" />
         <activity android:name=".view.activity.order.OrderEvaluated" />
@@ -69,7 +70,25 @@
         <activity android:name=".view.activity.address.AddAddressActivity"/>
         <activity android:name=".view.activity.address.EditorAddressActivity"/>
         <!--地址信息-->
+        <activity android:name=".view.activity.user.UserProfileModifyActivity"/>
         <!--个人中心-->
+        <!--分类-->
+        <activity android:name=".view.activity.product.ProductTypeListActivity"/>
+        <!--分类-->
+        <!--商品-->
+        <activity android:name=".view.activity.detailshop.DetailShoppingActivity"/>
+        <!--商品-->
+
+        <!--文件路径权限配置-->
+        <provider
+            android:authorities="com.zhongzi.taomanjia.fileprovider1"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider"/>
+        </provider>
+        <!--文件路径权限配置-->
 
     </application>
 
